@@ -296,4 +296,3 @@ openwrt-rbr50v2/
 - **2026-03-25** — Board detection, sysupgrade, network auto-config all working
 - **2026-03-25** — TLC59208F I2C LED controller discovered, ring LED under full control
 - **2026-03-25** — WiFi monitor mode confirmed working (ath10k-ct, all 3 radios)
-- **2026-03-25** — WiFi scan in Seinäjoki (2 networks on 2.4GHz)
