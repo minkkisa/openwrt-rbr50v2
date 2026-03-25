@@ -1,0 +1,3129 @@
+C!ÔKµ…Ñ: Log Type - Time(microsec) - Message - Optional Info
+Log Type: B - Since Boot(Power On Reset),  D - Delta,  S - Statistic
+S - QC_IMAGE_VERSION_STRING=BOOT.BF.3.1.1-00123
+S - IMAGE_VARIANT_STRING=DAACANAZA
+S - OEM_IMAGE_VERSION_STRING=CRM
+S - Boot Config, 0x00000025
+S - Reset status Config, 0x00000000
+S - Core 0 Frequency, 0 MHz
+B -       262 - PBL, Start
+B -      1341 - bootable_media_detect_entry, Start
+B -      2622 - bootable_media_detect_success, Start
+B -      2637 - elf_loader_entry, Start
+B -      4054 - auth_hash_seg_entry, Start
+B -      6229 - auth_hash_seg_exit, Start
+B -     71626 - elf_segs_hash_verify_entry, Start
+B -    196826 - PBL, End
+B -    196851 - SBL1, Start
+B -    290412 - pm_device_init, Start
+D -         7 - pm_device_init, Delta
+B -    291922 - boot_flash_init, Start
+D -     95710 - boot_flash_init, Delta
+B -    391941 - boot_config_data_table_init, Start
+D -     14008 - boot_config_data_table_init, Delta - (419 Bytes)
+B -    408650 - clock_init, Start
+D -      7585 - clock_init, Delta
+B -    419677 - CDT version:2,Platform ID:8,Major ID:1,Minor ID:0,Subtype:1
+B -    423090 - sbl1_ddr_set_params, Start
+B -    428185 - cpr_init, Start
+D -         2 - cpr_init, Delta
+B -    432567 - Pre_DDR_clock_init, Start
+D -         4 - Pre_DDR_clock_init, Delta
+D -     13171 - sbl1_ddr_set_params, Delta
+B -    445877 - pm_driver_init, Start
+D -         2 - pm_driver_init, Delta
+B -    516956 - sbl1_wait_for_ddr_training, Start
+D -        28 - sbl1_wait_for_ddr_training, Delta
+B -    533113 - Image Load, Start
+D -    146109 - QSEE Image Loaded, Delta - (274048 Bytes)
+B -    679650 - Image Load, Start
+D -      2115 - SEC Image Loaded, Delta - (2048 Bytes)
+B -    689792 - Image Load, Start
+D -    180470 - APPSBL Image Loaded, Delta - (426319 Bytes)
+B -    870658 - QSEE Execution, Start
+D -        56 - QSEE Execution, Delta
+B -    876889 - SBL1, End
+D -    682039 - SBL1, Delta
+S - Flash Throughput, 2036 KB/s  (703186 Bytes,  345261 us)
+S - DDR Frequency, 672 MHz
+
+
+U-Boot 2012.07-25703-g9d0650b-dirty [Chaos Calmer 15.05.1,r35193] (Oct 24 2018 - 14:07:51)
+
+U-boot dni1 V0.5 for DNI HW ID: 29765913; NOR flash 0MB; NAND flash 512MB; RAM 512MB
+smem ram ptable found: ver: 1 len: 3
+DRAM:  512 MiB
+machid : 0x8010001
+NAND:  ID = 9590dcc2
+Vendor = c2
+Device = dc
+ONFI device found
+SF NAND unsupported id:ff:ff:ff:ffSF: Unsupported manufacturer ff
+ipq_spi: SPI Flash not found (bus/cs/speed/mode) = (0/0/48000000/0)
+512 MiB
+MMC:   qca_mmc: 0
+*** Warning - bad CRC, using default environment
+
+PCI0 Link Intialized
+In:    serial
+Out:   serial
+Err:   serial
+Valid chip addresses: 27 48 4A
+machid: 8010001
+flash_type: 2
+Net:    131072 bytes read: OK
+MAC0 addr:38:94:ed:35:50:28
+PHY ID1: 0x4d
+PHY ID2: 0xd0b1
+ipq40xx_ess_sw_init done
+eth0
+Hit any key to stop autoboot:  1  0 
+eth0 PHY0 Down Speed :10 Half duplex
+eth0 PHY1 Down Speed :10 Half duplex
+eth0 PHY2 Down Speed :10 Half duplex
+eth0 PHY3 Down Speed :10 Half duplex
+eth0 PHY4 Down Speed :10 Half duplex
+
+ nmrp server is stopped or failed !
+Loading DNI firmware for checking...
+ 131072 bytes read: OK
+Loading firmware 1 ...
+
+NAND read: device 0 offset 0xa800000, size 0x20000
+ 131072 bytes read: OK
+
+NAND read: device 0 offset 0xa800000, size 0x340000
+ 3407872 bytes read: OK
+dniimg_len is 48498688 (aligned to 48627712)
+
+NAND read: device 0 offset 0xa800000, size 0x2e60000
+ 48627712 bytes read: OK
+if iminfo 0x84000000; then echo kernel checksum OK !;if iminfo 0x8433FFC0; then echo rootfs checksum OK !;;true;else echo rootfs checksum error !!!;;false;fi;else echo kernel checksum error !!!;;false;fi;
+## Checking Image at 84000000 ...
+   FIT image found
+   FIT description: ARM OpenWrt FIT (Flattened Image Tree)
+    Image 0 (kernel@1)
+     Description:  ARM OpenWrt Linux-3.14.77
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x840000e4
+     Data Size:    3056371 Bytes = 2.9 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x80208000
+     Entry Point:  0x80208000
+     Hash algo:    crc32
+     Hash value:   917f586f
+     Hash algo:    sha1
+     Hash value:   e77acb60002b8875ed28014c87a14c59a53f6cfd
+    Image 1 (fdt@1)
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x842ea518
+     Data Size:    39067 Bytes = 38.2 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   2fbe7ae7
+     Hash algo:    sha1
+     Hash value:   10a7fad2926d324e8b06b192c3531c391f78a6ed
+    Image 2 (fdt@2)
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x842f3ec0
+     Data Size:    38617 Bytes = 37.7 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   c0098bb9
+     Hash algo:    sha1
+     Hash value:   baf8b2904ec24c626934dabf5d6815eadedadc29
+    Image 3 (fdt@3)
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x842fd6a8
+     Data Size:    42101 Bytes = 41.1 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   0109faf0
+     Hash algo:    sha1
+     Hash value:   34ee6bdafd6315d361d6aa99b5ad45a9944b32dd
+    Image 4 (fdt@4)
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x84307c2c
+     Data Size:    34248 Bytes = 33.4 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   0fa6ee98
+     Hash algo:    sha1
+     Hash value:   dcec33a744cfed6a21c9a9be313791f98b1081ff
+    Image 5 (fdt@5)
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x84310300
+     Data Size:    34407 Bytes = 33.6 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   96f6beb1
+     Hash algo:    sha1
+     Hash value:   3a938e8901b816f4fa7d73aacbc3e2b54422c5d0
+    Image 6 (fdt@6)
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x84318a74
+     Data Size:    34547 Bytes = 33.7 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   ce835bd9
+     Hash algo:    sha1
+     Hash value:   f48535f83fe16c4d3471b18ddab6dfa5d1a633e7
+    Image 7 (fdt@7)
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x84321274
+     Data Size:    38588 Bytes = 37.7 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   bb010bc8
+     Hash algo:    sha1
+     Hash value:   a52a0530438afae1fe5fed13cb380503d0ee576b
+    Image 8 (fdt@8)
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x8432aa3c
+     Data Size:    38467 Bytes = 37.6 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   311234ec
+     Hash algo:    sha1
+     Hash value:   c7be34f25ccb51f0d0eaa6985af77d30b872eaef
+    Image 9 (fdt@9)
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x8433418c
+     Data Size:    38165 Bytes = 37.3 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   f91b53ee
+     Hash algo:    sha1
+     Hash value:   7f783a91e42dc651bb82f01479f5207640db0d53
+    Default Configuration: 'config@1'
+    Configuration 0 (config@1)
+     Description:  OpenWrt
+     Kernel:       kernel@1
+     FDT:          fdt@1
+    Configuration 1 (config@2)
+     Description:  OpenWrt
+     Kernel:       kernel@1
+     FDT:          fdt@2
+    Configuration 2 (config@3)
+     Description:  OpenWrt
+     Kernel:       kernel@1
+     FDT:          fdt@3
+    Configuration 3 (config@4)
+     Description:  OpenWrt
+     Kernel:       kernel@1
+     FDT:          fdt@4
+    Configuration 4 (config@5)
+     Description:  OpenWrt
+     Kernel:       kernel@1
+     FDT:          fdt@5
+    Configuration 5 (config@6)
+     Description:  OpenWrt
+     Kernel:       kernel@1
+     FDT:          fdt@6
+    Configuration 6 (config@7)
+     Description:  OpenWrt
+     Kernel:       kernel@1
+     FDT:          fdt@7
+    Configuration 7 (config@8)
+     Description:  OpenWrt
+     Kernel:       kernel@1
+     FDT:          fdt@8
+    Configuration 8 (config@9)
+     Description:  OpenWrt
+     Kernel:       kernel@1
+     FDT:          fdt@9
+## Checking hash(es) for FIT Image at 84000000 ...
+   Hash(es) for Image 0 (kernel@1): crc32+ sha1+ 
+   Hash(es) for Image 1 (fdt@1): crc32+ sha1+ 
+   Hash(es) for Image 2 (fdt@2): crc32+ sha1+ 
+   Hash(es) for Image 3 (fdt@3): crc32+ sha1+ 
+   Hash(es) for Image 4 (fdt@4): crc32+ sha1+ 
+   Hash(es) for Image 5 (fdt@5): crc32+ sha1+ 
+   Hash(es) for Image 6 (fdt@6): crc32+ sha1+ 
+   Hash(es) for Image 7 (fdt@7): crc32+ sha1+ 
+   Hash(es) for Image 8 (fdt@8): crc32+ sha1+ 
+   Hash(es) for Image 9 (fdt@9): crc32+ sha1+ 
+kernel checksum OK !
+
+## Checking Image at 8433ffc0 ...
+   Legacy image found
+   Image Name:   ARM OpenWrt Linux-3.14.77
+   Image Type:   ARM Linux Kernel Image (lzma compressed)
+   Data Size:    45090816 Bytes = 43 MiB
+   Load Address: 40908000
+   Entry Point:  40908000
+   Verifying Checksum ... OK
+rootfs checksum OK !
+## Booting kernel from FIT Image at 84000000 ...
+   Using 'config@2' configuration
+   Trying 'kernel@1' kernel subimage
+     Description:  ARM OpenWrt Linux-3.14.77
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x840000e4
+     Data Size:    3056371 Bytes = 2.9 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x80208000
+     Entry Point:  0x80208000
+     Hash algo:    crc32
+     Hash value:   917f586f
+     Hash algo:    sha1
+     Hash value:   e77acb60002b8875ed28014c87a14c59a53f6cfd
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Flattened Device Tree from FIT Image at 84000000
+   Using 'config@2' configuration
+   Trying 'fdt@2' FDT blob subimage
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x842f3ec0
+     Data Size:    38617 Bytes = 37.7 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   c0098bb9
+     Hash algo:    sha1
+     Hash value:   baf8b2904ec24c626934dabf5d6815eadedadc29
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Booting using the fdt blob at 0x842f3ec0
+   Uncompressing Kernel Image ... OK
+   Loading Device Tree to 86ff3000, end 86fff6d8 ... OK
+Device nand2 not found!
+ 131072 bytes read: OK
+Using machid 0x8010001 from environment
+
+Starting kernel ...
+
+Booting Linux on physical CPU 0x0
+Linux version 3.14.77 (rachel.xm.li@Ubuntu16_04-GCC5_4_0) (gcc version 5.2.0 (OpenWrt GCC 5.2.0 r6043) ) #1 SMP PREEMPT Fri Sep 27 20:30:32 CST 2024
+CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+Machine model: Qualcomm Technologies, Inc. IPQ40xx/AP-DK04.1-C1
+Flash name: NAND_FLASH
+Memory policy: Data cache writealloc
+PERCPU: Embedded 8 pages/cpu @dfbc6000 s8448 r8192 d16128 u32768
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 125952
+Kernel command line:  rootwait clk_ignore_unused user_debug=0xff
+PID hash table entries: 2048 (order: 1, 8192 bytes)
+Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+Memory: 496716K/507904K available (4264K kernel code, 258K rwdata, 1348K rodata, 172K init, 356K bss, 11188K reserved, 0K highmem)
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+    vmalloc : 0xe0800000 - 0xff000000   ( 488 MB)
+    lowmem  : 0xc0000000 - 0xe0000000   ( 512 MB)
+    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+      .text : 0xc0208000 - 0xc0783500   (5614 kB)
+      .init : 0xc0784000 - 0xc07af100   ( 173 kB)
+      .data : 0xc07b0000 - 0xc07f0a78   ( 259 kB)
+       .bss : 0xc07f0a78 - 0xc0849b40   ( 357 kB)
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+Preemptible hierarchical RCU implementation.
+NR_IRQS:16 nr_irqs:16 16
+Architected cp15 timer(s) running at 48.00MHz (virt).
+sched_clock: 56 bits at 48MHz, resolution 20ns, wraps every 2863311552512ns
+Switching to timer-based delay loop
+Calibrating delay loop (skipped), value calculated using timer frequency.. 96.00 BogoMIPS (lpj=480000)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+CPU: Testing write buffer coherency: ok
+CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+Setting up static identity map for 0x80213278 - 0x802132d0
+CPU1: Booted secondary processor
+ 
+ i2c devices info
+CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+CPU2: Booted secondary processor
+ 
+ i2c devices info
+CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+CPU3: Booted secondary processor
+ 
+ i2c devices info
+CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+Brought up 4 CPUs
+SMP: Total of 4 processors activated (384.00 BogoMIPS).
+CPU: All CPU(s) started in SVC mode.
+VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+pinctrl core: initialized pinctrl subsystem
+regulator-dummy: no parameters
+NET: Registered protocol family 16
+DMA: preallocated 2048 KiB pool for atomic coherent allocations
+cpuidle: using governor ladder
+cpuidle: using governor menu
+hw-breakpoint: Debug register access (0xee003e17) caused undefined instruction on CPU 1
+hw-breakpoint: Debug register access (0xee003e17) caused undefined instruction on CPU 3
+hw-breakpoint: Debug register access (0xee003e17) caused undefined instruction on CPU 2
+hw-breakpoint: CPU 3 failed to disable vector catch
+hw-breakpoint: Debug register access (0xee003e17) caused undefined instruction on CPU 0
+
+Version Rollback Feature Disabled
+i2c-msm-v2 78b7000.i2c: probing driver i2c-msm-v2
+i2c i2c-0: Failed to register i2c client tlc59208f at 0x27 (-16)
+i2c i2c-0: Can't create device at 0x27
+i2c i2c-0: Failed to register i2c client sensor at 0x4a (-16)
+i2c i2c-0: Can't create device at 0x4a
+i2c i2c-0: Failed to register i2c client sensor2 at 0x4e (-16)
+i2c i2c-0: Can't create device at 0x4e
+i2c i2c-0: Failed to register i2c client tlc59208f at 0x27 (-16)
+i2c i2c-0: Can't create device at 0x27
+i2c i2c-0: Failed to register i2c client sensor at 0x4a (-16)
+i2c i2c-0: Can't create device at 0x4a
+i2c i2c-0: Failed to register i2c client sensor2 at 0x4e (-16)
+i2c i2c-0: Can't create device at 0x4e
+sps:sps is ready.
+bio: create slab <bio-0> at 0
+SD0 VccQ: 1800 <--> 3000 mV 
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+msm_bus_fabric_init_driver
+msm_bus_device 580000.ad-hoc-bus: Util-fact is missing, default to 100
+msm_bus_device 580000.ad-hoc-bus: Vrail-comp is missing, default to 100
+msm_bus_device 580000.ad-hoc-bus: Failed to get bus clk for bus4096 ctx1
+msm_bus_device 580000.ad-hoc-bus: Util-fact is missing, default to 100
+msm_bus_device 580000.ad-hoc-bus: Vrail-comp is missing, default to 100
+msm_bus_device 580000.ad-hoc-bus: Failed to get bus clk for bus1024 ctx1
+Neighbour init complete, with restricted-GC and GC-lock enabled
+80000.qcom,pcie supply vreg-3.3 not found, using dummy regulator
+80000.qcom,pcie supply vreg-1.8 not found, using dummy regulator
+80000.qcom,pcie supply vreg-0.9 not found, using dummy regulator
+80000.qcom,pcie supply gdsc-vdd not found, using dummy regulator
+msm_pcie_enable: msm_pcie_enable: PCIe: trigger the reset of endpoint of RC0.
+msm_pcie_enable: msm_pcie_enable: PCIe RC0 PHY is ready!
+msm_pcie_enable: msm_pcie_enable: PCIe: Release the reset of endpoint of RC0.
+msm_pcie_enable: msm_pcie_enable: PCIe RC0 link initialized
+PCI host bridge to bus 0000:00
+pci_bus 0000:00: root bus resource [io  0x40200000-0x402fffff]
+pci_bus 0000:00: root bus resource [mem 0x40300000-0x40ffffff]
+pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+msm_pcie_oper_conf: msm_pcie_oper_conf: Read of RC0 0:0x00 + 0x0014[4] is all FFs
+PCI: bus0: Fast back to back transfers disabled
+pci 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+msm_pcie_oper_conf: msm_pcie_oper_conf: Read of RC0 1:0x00 + 0x0014[4] is all FFs
+PCI: bus1: Fast back to back transfers disabled
+msm_pcie_oper_conf: msm_pcie_oper_conf: Read of RC0 0:0x00 + 0x0028[4] is all FFs
+pci 0000:00:00.0: BAR 8: assigned [mem 0x40400000-0x405fffff]
+pci 0000:00:00.0: BAR 0: assigned [mem 0x40300000-0x40300fff 64bit]
+pci 0000:01:00.0: BAR 0: assigned [mem 0x40400000-0x405fffff 64bit]
+pci 0000:00:00.0: PCI bridge to [bus 01]
+pci 0000:00:00.0:   bridge window [mem 0x40400000-0x405fffff]
+msm_pcie_probe: msm_pcie_probe: RC0 is enabled in bootup
+Switched to clocksource arch_sys_counter
+NET: Registered protocol family 2
+create ipmac proc
+TCP established hash table entries: 4096 (order: 2, 16384 bytes)
+TCP bind hash table entries: 4096 (order: 3, 32768 bytes)
+TCP: Hash tables configured (established 4096 bind 4096)
+TCP: reno registered
+UDP hash table entries: 256 (order: 1, 8192 bytes)
+UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+NET: Registered protocol family 1
+hw perfevents: enabled with ARMv7 Cortex-A7 PMU driver, 5 counters available
+futex hash table entries: 1024 (order: 4, 65536 bytes)
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+msgmni has been set to 970
+NET: Registered protocol family 38
+Key type asymmetric registered
+Asymmetric key parser 'x509' registered
+io scheduler noop registered
+io scheduler deadline registered (default)
+tcsr 194b000.tcsr: setting usb hs phy mode select = e700e7
+tcsr 1953000.ess_tcsr: setting ess interface select = 0
+tcsr 1949000.tcsr: setting wifi_glb_cfg = 41000000
+tcsr 1957000.tcsr: setting wifi_noc_memtype_m0_m2 = 2222222
+Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+msm_serial_hsl_probe: detected port #0 (ttyMSM0)
+msm_serial_hsl_probe: Bus scaling is disabled
+78af000.serial: ttyMSM0 at MMIO 0x78af000 (irq = 139, base_baud = 115200) is a MSM
+msm_hsl_console_setup: console setup on port #0
+console [ttyMSM0] enabled
+msm_serial_hsl_probe: detected port #1 (ttyMSM1)
+msm_serial_hsl_probe: Bus scaling is disabled
+78b0000.serial: ttyMSM1 at MMIO 0x78b0000 (irq = 140, base_baud = 115200) is a MSM
+msm_serial_hsl_init: driver initialized
+qca_serial_hs module loaded
+sps: BAM device 0x07984000 is not registered yet.
+sps:BAM 0x07984000 is registered.
+msm_nand_bam_init: msm_nand_bam_init: BAM device registered: bam_handle 0xdecc0600
+sps:BAM 0x07984000 (va:0xe0a60000) enabled: ver:0x19, number of pipes:7
+msm_nand_version_check: nand_major:1, nand_minor:4, qpic_major:1, qpic_minor:4
+msm_nand_scan: missing page size info - extract from NAND ID
+msm_nand_scan: NAND Id: 0x9590dcc2 Buswidth: 8Bits Density: 512 MByte
+msm_nand_scan: pagesize: 2048 Erasesize: 131072 oobsize: 64 (in Bytes)
+msm_nand_scan: BCH ECC: 4 Bit
+msm_nand_scan: CFG0: 0x2a0408c0,      CFG1: 0x0804745c
+            RAWCFG0: 0x280420c0,   RAWCFG1: 0x0005045d
+          ECCBUFCFG: 0x00000203, ECCBCHCFG: 0x42040700
+     BAD BLOCK BYTE: 0x000001d1
+use RBR50 partition table
+29 ofpart partitions found on MTD device 7980000.qcom,nand
+Creating 29 MTD partitions on "7980000.qcom,nand":
+0x000000000000-0x000000100000 : "0:SBL1"
+0x000000100000-0x000000200000 : "0:MIBIB"
+0x000000200000-0x000000300000 : "0:BOOTCONFIG"
+0x000000300000-0x000000400000 : "0:QSEE"
+0x000000400000-0x000000500000 : "0:QSEE_1"
+0x000000500000-0x000000580000 : "0:CDT"
+0x000000580000-0x000000600000 : "0:CDT_1"
+0x000000600000-0x000000680000 : "0:BOOTCONFIG1"
+0x000000680000-0x000000700000 : "0:APPSBLENV"
+0x000000700000-0x000000900000 : "0:APPSBL"
+0x000000900000-0x000000b00000 : "0:APPSBL_1"
+0x000000b00000-0x000000b80000 : "0:ART"
+0x000000b80000-0x000000c00000 : "0:ART.bak"
+0x000000c00000-0x000000d00000 : "config"
+0x000000d00000-0x000000d80000 : "boarddata1"
+0x000000d80000-0x000000dc0000 : "boarddata2"
+0x000000dc0000-0x000000ec0000 : "pot"
+0x000000ec0000-0x000000f40000 : "boarddata1.bak"
+0x000000f40000-0x000000f80000 : "boarddata2.bak"
+0x000000f80000-0x000001480000 : "language"
+0x000001480000-0x000001500000 : "cert"
+0x000001500000-0x00000a800000 : "ntgrdata"
+0x00000a800000-0x00000da00000 : "firmware"
+0x00000a800000-0x00000ab40000 : "kernel"
+0x00000ab40000-0x00000da00000 : "rootfs"
+mtd: device 24 (rootfs) set to be root filesystem
+1 squashfs-split partitions found on MTD device rootfs
+0x00000d640000-0x00000da00000 : "rootfs_data"
+mtd: find squashfs magic at 0xab40000 of 7980000.qcom,nand
+mtd: find squashfs magic at 0x0 of rootfs
+remap_blocks_in_rootfs_partition: remapped partition rootfs: 0x00000ab40000-0x00000da00000
+create_block_mapping: create logic to physic blocks mapping for rootfs
+0x00000da00000-0x000010c00000 : "firmware2"
+0x00000da00000-0x00000dd40000 : "kernel2"
+0x00000dd40000-0x000010c00000 : "rootfs2"
+mtd: find squashfs magic at 0xdd40000 of 7980000.qcom,nand
+mtd: find squashfs magic at 0x0 of rootfs2
+remap_blocks_in_rootfs_partition: remapped partition rootfs2: 0x00000dd40000-0x000010c00000
+create_block_mapping: create logic to physic blocks mapping for rootfs2
+0x000010c00000-0x000020000000 : "reserved"
+boot_from_dni_dual_firmware: boot partition index in boarddata2 is 0x31
+boot_from_dni_dual_firmware: booting rootfs from mtd24
+msm_nand_probe: NANDc phys addr 0x7980000, BAM phys addr 0x7984000, BAM IRQ 133
+msm_nand_probe: Allocated DMA buffer at virt_addr 0xe0a58000, phys_addr 0x9ecc2000
+sps: BAM device 0x07884000 is not registered yet.
+sps:BAM 0x07884000 is registered.
+sps:BAM 0x07884000 (va:0xe0b00000) enabled: ver:0x19, number of pipes:12
+m25p80 spi0.0: Failed to find sector-size
+libphy: ipq40xx_mdio: probed
+ipq40xx-mdio 90000.mdio: ipq40xx-mdio driver was registered
+dwc3 8a00000.dwc3: no usb2 phy configured
+platform 8a00000.dwc3: Driver dwc3 requests probe deferral
+dwc3 6000000.dwc3: no usb2 phy configured
+platform 6000000.dwc3: Driver dwc3 requests probe deferral
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+ehci-pci: EHCI PCI platform driver
+ehci-platform: EHCI generic platform driver
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+ohci-platform: OHCI generic platform driver
+i2c /dev entries driver
+tlc59208f init!
+tlc59208f probe
+
+Init I2c register 27
+tlc59208f probe
+
+Init I2c register 4a
+tlc59208f probe
+
+Init I2c register 4e
+i2c-core: driver [tlc59208f] using legacy suspend method
+i2c-core: driver [tlc59208f] using legacy resume method
+i2c-core: driver [sensor] using legacy suspend method
+i2c-core: driver [sensor] using legacy resume method
+i2c-core: driver [sensor2] using legacy suspend method
+i2c-core: driver [sensor2] using legacy resume method
+debug defined config_mmc_test in mmc_register_driver
+sdhci: Secure Digital Host Controller Interface driver
+sdhci: Copyright(c) Pierre Ossman
+sdhci-pltfm: SDHCI platform and OF driver helper
+Netfilter messages via NETLINK v0.30.
+nf_conntrack version 0.5.0 (7761 buckets, 31044 max)
+ip_tables: (C) 2000-2006 Netfilter Core Team
+TCP: cubic registered
+NET: Registered protocol family 10
+sit: IPv6 over IPv4 tunneling driver
+NET: Registered protocol family 17
+Bridge firewalling registered
+l2tp_core: L2TP core driver, V2.0
+l2tp_netlink: L2TP netlink interface
+8021q: 802.1Q VLAN Support v1.8
+Registering SWP/SWPB emulation handler
+SD0 VccQ: disabling
+regulator-dummy: disabling
+xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+xhci-hcd xhci-hcd.0.auto: irq 164, io mem 0x08a00000
+usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb1: Product: xHCI Host Controller
+usb usb1: Manufacturer: Linux 3.14.77 xhci-hcd
+usb usb1: SerialNumber: xhci-hcd.0.auto
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+usb usb2: New USB device found, idVendor=1d6b, idProduct=0003
+usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb2: Product: xHCI Host Controller
+usb usb2: Manufacturer: Linux 3.14.77 xhci-hcd
+usb usb2: SerialNumber: xhci-hcd.0.auto
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 1 port detected
+xhci-hcd xhci-hcd.1.auto: xHCI Host Controller
+xhci-hcd xhci-hcd.1.auto: new USB bus registered, assigned bus number 3
+xhci-hcd xhci-hcd.1.auto: irq 168, io mem 0x06000000
+usb usb3: New USB device found, idVendor=1d6b, idProduct=0002
+usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb3: Product: xHCI Host Controller
+usb usb3: Manufacturer: Linux 3.14.77 xhci-hcd
+usb usb3: SerialNumber: xhci-hcd.1.auto
+hub 3-0:1.0: USB hub found
+hub 3-0:1.0: 1 port detected
+xhci-hcd xhci-hcd.1.auto: xHCI Host Controller
+xhci-hcd xhci-hcd.1.auto: new USB bus registered, assigned bus number 4
+usb usb4: New USB device found, idVendor=1d6b, idProduct=0003
+usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb4: Product: xHCI Host Controller
+usb usb4: Manufacturer: Linux 3.14.77 xhci-hcd
+usb usb4: SerialNumber: xhci-hcd.1.auto
+hub 4-0:1.0: USB hub found
+hub 4-0:1.0: config failed, hub doesn't have any ports! (err -19)
+drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+clk: Not disabling unused clocks
+VFS: Mounted root (squashfs filesystem) readonly on device 31:24.
+Freeing unused kernel memory: 172K (c0784000 - c07af000)
+init: Console is alive
+init: - watchdog -
+random: kmodloader: uninitialized urandom read (4 bytes read, 24 bits of entropy available)
+init: - preinit -
+random: sh: uninitialized urandom read (4 bytes read, 43 bits of entropy available)
+random: procd: uninitialized urandom read (4 bytes read, 48 bits of entropy available)
+random: cat: uninitialized urandom read (4 bytes read, 53 bits of entropy available)
+random: mkdir: uninitialized urandom read (4 bytes read, 53 bits of entropy available)
+random: mkdir: uninitialized urandom read (4 bytes read, 53 bits of entropy available)
+random: grep: uninitialized urandom read (4 bytes read, 53 bits of entropy available)
+random: mktemp: uninitialized urandom read (4 bytes read, 53 bits of entropy available)
+random: mktemp: uninitialized urandom read (6 bytes read, 53 bits of entropy available)
+random: mktemp: uninitialized urandom read (4 bytes read, 53 bits of entropy available)
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+Before mount_root
+Before DNI mount_root
+Info: init ubi volumes on ntgrdata raw partition
+UBI: attaching mtd21 to ubi0
+UBI: scanning is finished
+UBI: attached mtd21 (name "ntgrdata", size 147 MiB) to ubi0
+UBI: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+UBI: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+UBI: VID header offset: 2048 (aligned 2048), data offset: 4096
+UBI: good PEBs: 1176, bad PEBs: 0, corrupted PEBs: 0
+UBI: user volume: 11, internal volumes: 1, max. volumes count: 128
+UBI: max/mean erase counter: 419/285, WL threshold: 4096, image sequence number: 1234419669
+UBI: available PEBs: 8, total reserved PEBs: 1168, PEBs reserved for bad PEB handling: 80
+UBI: background thread "ubi_bgt0d" started, PID 113
+UBI device number 0, total 1176 LEBs (149323776 bytes, 142.4 MiB), available 8 LEBs (1015808 bytes, 992.0 KiB), LEB size 126976 bytes (124.0 KiB)
+Info: attach ubi device on ntgrdata success!
+After DNI mount_root
+After mount_root
+procd: - early -
+procd: - watchdog -
+procd: - ubus -
+procd: - init -
+Please press Enter to activate this console.
+Fri Sep 27 12:30:54 UTC 2024
+Checking env partition first ...
+Checking env partition first ...
+/dev/mem opened.
+Memory mapped at address 0xb6f2f000.
+Value at address 0x9921C (0xb6f2f21c): 0xAA8A
+Written 0x2A8A; readback 0x2A8A
+/dev/mem opened.
+Memory mapped at address 0xb6f74000.
+Value at address 0x9919C (0xb6f7419c): 0x4258
+Written 0x4358; readback 0x4358
+/dev/mem opened.
+Memory mapped at address 0xb6fe2000.
+Value at address 0x102D000 (0xb6fe2000): 0x4801
+Written 0x4902; readback 0x4902
+/dev/mem opened.
+Memory mapped at address 0xb6fd1000.
+atherosgpio init
+Value at address 0x102E000 (0xb6fd1000): 0x4801
+Written 0x4902;
+
+
+
+ LED = 64, 63,54 ,53, 57,60
+
+
+
+
+ readback 0x4902
+/dev/mem opened.
+Memory mapped at address 0xb Init Sensor temp = 201a, shutdown temp = 0068
+6efc000.
+Value at address 0x1019000 (0xb6efc000): 0x4A01
+Written 0x4902; readback 0x4902
+/dev/mem opened.
+Memory mapped at address 0xb6f42000.
+Value at address 0x1018000 (0xb6f42000): 0x4A01
+Written 0x4902; readback 0x4902
+/dev/mem opened.
+Memory mapped at address 0xb6fd7000.
+Value at address 0x101A000 (0xb6fd7000): 0x4A01
+Written 0x4902; readback 0x4902
+/dev/mem opened.
+Memory mapped at address 0xb6ff2000.
+Value at address 0x101B000 (0xb6ff2000): 0x4A01
+Written 0x4902; readback 0x4902
+/dev/mem opened.
+Memory mapped at address 0xb6f1b000.
+Value at address 0x1014000 (0xb6f1b000): 0x204
+Written 0x4902; readback 0x4902
+/dev/mem opened.
+Memory mapped at address 0xb6f27000.
+Value at address 0x1015000 (0xb6f27000): 0x204
+Written 0x4902; readback 0x4902
+The region number is: 0x0002
+REGION: WW
+WPSPIN: 33598291
+sn:5R21975G0007A
+SN: 5R21975G0007A
+lan mac: 38:94:ed:35:50:28
+wlan 2g mac: 3e:94:ed:35:50:28
+wan mac: 38:94:ed:35:50:29
+wlan5g mac: 38:94:ed:35:50:2a
+wlan2nd5g mac: 38:94:ed:35:50:2b
+bt mac: 38:94:ed:35:50:2c
+hw_revision: 02
+mp_fwversion:ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Loading data from " config_dev " ...
+
+Done!
+
+The data center is Running ...
+
+Generating Rules...
+Done!
+random: nonblocking pool is initialized
+QCE50: __qce_init_clk: Unable to get CE core src clk, set to NULL
+qcrypto 8e20000.qcrypto: Qualcomm Crypto 5.3.1 device found @0x8e20000
+qcrypto 8e20000.qcrypto: CE device = 0x0
+, IO base, CE = 0xe1140000
+, Consumer (IN) PIPE 2,    Producer (OUT) PIPE 3
+IO base BAM = 0x  (null)
+BAM IRQ 239
+Engines Availability = 0x2010453
+sps:BAM 0x08e04000 is registered.
+sps:BAM 0x08e04000 (va:0xe1180000) enabled: ver:0x27, number of pipes:4
+QCE50: qce_sps_init:  Qualcomm MSM CE-BAM at 0x0000000008e04000 irq 239
+bus_scale_table is NULL
+qcrypto 8e20000.qcrypto: qcrypto-ecb-aes
+qcrypto 8e20000.qcrypto: qcrypto-cbc-aes
+qcrypto 8e20000.qcrypto: qcrypto-ctr-aes
+qcrypto 8e20000.qcrypto: qcrypto-ecb-des
+qcrypto 8e20000.qcrypto: qcrypto-cbc-des
+qcrypto 8e20000.qcrypto: qcrypto-ecb-3des
+qcrypto 8e20000.qcrypto: qcrypto-cbc-3des
+qcrypto 8e20000.qcrypto: qcrypto-xts-aes
+qcrypto 8e20000.qcrypto: qcrypto-sha1
+qcrypto 8e20000.qcrypto: qcrypto-sha256
+qcrypto 8e20000.qcrypto: qcrypto-aead-hmac-sha1-cbc-aes
+qcrypto 8e20000.qcrypto: qcrypto-aead-hmac-sha1-cbc-des
+qcrypto 8e20000.qcrypto: qcrypto-aead-hmac-sha1-cbc-3des
+qcrypto 8e20000.qcrypto: qcrypto-aead-hmac-sha256-cbc-aes
+qcrypto 8e20000.qcrypto: qcrypto-aead-hmac-sha256-cbc-des
+qcrypto 8e20000.qcrypto: qcrypto-aead-hmac-sha256-cbc-3des
+qcrypto 8e20000.qcrypto: qcrypto-hmac-sha1
+qcrypto 8e20000.qcrypto: qcrypto-hmac-sha256
+qcrypto 8e20000.qcrypto: qcrypto-aes-ccm
+qcrypto 8e20000.qcrypto: qcrypto-rfc4309-aes-ccm
+qcrypto: FIPS140-2 Known Answer Tests: Skipped
+clbr: module license 'Proprietary' taints kernel.
+Disabling lock debugging due to kernel taint
+client bridge loaded
+device-mapper: ioctl: 4.27.0-ioctl (2013-10-30) initialised: dm-devel@redhat.com
+loop: module loaded
+PPP generic driver version 2.4.2
+ess-switch DT exist!
+switchreg_base_addr: 0xc000000
+switchreg_size: 0x80000
+switch_access_mode: local bus
+wan bmp:0x20
+ess-psgmii DT exist!
+mac mode=0
+current mac mode = 0
+current dts led_source_num is 5
+mdio DT exist!
+ssdk_plat_init start
+enable ess clk
+reset ok in probe!
+PHY ID is 0x4dd0b1
+qca probe malibu phy driver succeeded!
+Dakota Chip version 0x1401
+qca-ssdk module init succeeded!
+tun: Universal TUN/TAP device driver, 1.6
+tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+**********************************************************
+* Driver    :NSS GMAC Driver for RTL v(3.72a)
+* Version   :1.0
+* Copyright :Copyright (c) 2013-2016 The Linux Foundation. All rights reserved.
+**********************************************************
+mdio bus 'mdio-gpio.0' get FAIL.netlink_kernel_create error ...
+qca-nss-drv.ko is loaded for symbol link
+dni-qos module init.
+gre: GRE over IPv4 demultiplexor driver
+ip_gre: GRE over IPv4 tunneling driver
+bonding: Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011)
+QCA Hy-Fi multicast installation successfully
+ip6_tables: (C) 2000-2006 Netfilter Core Team
+nf_conntrack_rtsp v0.6.21 loading
+nf_nat_rtsp v0.6.21 loading
+XHTTP netlink: create netlink OK.
+ip_set: protocol 6
+NET: Registered protocol family 24
+ECM init
+ECM database jhash random seed: 0xb744f649
+ECM init complete
+PPTP driver version 0.8.5
+u32 classifier
+    Performance counters on
+    input device check on
+    Actions configured
+Mirror/redirect action on
+Loading DNI-ENET driver
+Ebtables v2.0 registered
+l2tp_ppp: PPPoL2TP kernel driver, V2.0
+ctnetlink v0.93: registering with nfnetlink.
+xt_time: kernel timezone is -0000
+.
+= switch init
+.
+UBIFS: background thread "ubifs_bgt0_5" started, PID 1390
+UBIFS: recovery needed
+UBIFS: recovery completed
+UBIFS: mounted UBI device 0, volume 5, name "vol_ntgr"
+UBIFS: LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+UBIFS: FS size: 38600704 bytes (36 MiB, 304 LEBs), journal size 1904640 bytes (1 MiB, 15 LEBs)
+UBIFS: reserved for root: 1823206 bytes (1780 KiB)
+UBIFS: media format: w4/r0 (latest is w4/r0), UUID 1B0ACA27-73C2-444A-B8E8-1AF7AA384902, small LPT model
+Volume ID:   10 (on ubi0)
+Type:        dynamic
+Alignment:   1
+Size:        9 LEBs (1142784 bytes, 1.1 MiB)
+State:       OK
+Name:        vol_jdx
+Character device major/minor: 249:11
+cfg02aa45
+Config commit is not allowed during booting
+not need do overwrite lbd
+Also not need do overwrite lbd
+Also not need do overwrite lbd
+Also not need do overwrite lbd
+Also not need do overwrite DFS
+/etc/rc.common: /etc/rc.d/S11init-gpio: line 23: syntax error: unexpected "}"
+EXT4-fs (mtdblock40): mounted filesystem without journal. Opts: (null)
+bio: create slab <bio-1> at 1
+EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+.
+= network init
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+device eth1 entered promiscuous mode
+init.enet: Default LAN MAC is : 38:94:ed:35:50:28
+.
+hyd: ERROR: Bridge is not attached; start hyfi-bridging first
+  Reading all physical volumes.  This may take a while...
+Successfully initialized wpa_supplicant
+UBIFS: background thread "ubifs_bgt0_8" started, PID 2237
+UBIFS: recovery needed
+UBIFS: recovery completed
+UBIFS: mounted UBI device 0, volume 8, name "vol_arlo"
+UBIFS: LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+UBIFS: FS size: 4063232 bytes (3 MiB, 32 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs)
+UBIFS: reserved for root: 191915 bytes (187 KiB)
+UBIFS: media format: w4/r0 (latest is w4/r0), UUID 747DB986-C3F0-43D9-B29F-8B6A8F59B641, small LPT model
+Config commit is not allowed during booting
+Module name matched: dal_ash
+LOG level for the dal_ash is: LOG_DEBUG
+LogToConsole value is: false
+LogToFile value is: true
+
+Log Level changed sucessfully for dal_ash!!!
+
+Module name matched: upagent
+LOG level for the upagent is: LOG_DEBUG
+LogToConsole value is: false
+LogToFile value is: true
+
+Log Level changed sucessfully for upagent!!!
+
+2247
+Enjoy !!!!! D2D running
+034557:(18): add subscription General (0)
+034557:(18): Registering ntf
+034557:(18): (De)registering complete
+boot *************
+start_service *************
+switch init
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+035085:(20): add subscription Dilsignature (0)
+035085:(20): Registering ntf
+035085:(20): (De)registering complete
+035086:(20): add subscription General (0)
+035086:(20): add subscription DILGeneral (0)
+035086:(20): add subscription dalLogCfg (0)
+035087:(20): add subscription DILGeneral (0)
+opmode = normal
+device eth1 left promiscuous mode
+br0: port 1(eth1) entered disabled state
+
+*********************
+have done something about plug off
+***********************
+device eth1 entered promiscuous mode
+device eth0 entered promiscuous mode
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+Illegal parameter(s) 
+
+
+ SSDK Init OK!
+operate done.
+
+IPv6: ADDRCONF(NETDEV_UP): br0: link is not ready
+=====before lan bridge down,should down backhaul ap ath01 first=======
+net.bridge.bridge-nf-call-custom = 0
+hyfi_netlink_receive:108:hyfi: Not attached to bridge br0
+Error running command
+IPv6: ADDRCONF(NETDEV_UP): br0: link is not ready
+net.bridge.bridge-nf-call-custom = 1
+=====bridge up,should up backhaul ap ath01 first=======
+Deleting static route ... Done!
+Adding static route ... Done!
+udhcp server (v0.9.8) started
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+br0: port 1(eth1) entered forwarding state
+br0: port 1(eth1) entered forwarding state
+IPv6: ADDRCONF(NETDEV_CHANGE): br0: link becomes ready
+IPv6: ADDRCONF(NETDEV_UP): brwan: link is not ready
+[wlan]===time:Fri Sep 27 12:31:20 UTC 2024   command:wlan countrycode============== 
+[wlan]===time:Fri Sep 27 12:31:22 UTC 2024   command:wlan updateconf boot============== 
+[wlan]=========time:Fri Sep 27 12:31:22 UTC 2024 wlan updateconf start======
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+
+ SSDK Init OK!
+operate done.
+
+[wlan]=========time:Fri Sep 27 12:31:26 UTC 2024 wlan updateconf end======
+QCA post_updateconf_qcawifi
+044834:(32): add subscription FeatureCfg (0)
+044834:(32): Registering ntf
+044834:(32): (De)registering complUBIFS: background thread "ubifs_bgt0_2" started, PID 5070
+ete
+UBIFS: recovery needed
+UBIFS: recovery completed
+UBIFS: mounted UBI device 0, volume 2, name "vol_devtable"
+UBIFS: LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+UBIFS: FS size: 4063232 bytes (3 MiB, 32 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs)
+UBIFS: reserved for root: 191915 bytes (187 KiB)
+UBIFS: media format: w4/r0 (latest is w4/r0), UUID BCF145F6-07FC-4E7D-9108-3C325A94F0E2, small LPT model
+Run BASE_BOARD net-scan config...The attached devices demo is Running ...
+Support ssdk switch mac table check function.
+Config commit is not allowed during booting
+046384:(37): add subscription DILGeneral (0)
+046384:(37): Registering ntf
+046384:(37): (De)registering complete
+046386:(38): add subscription Dilsignature (0)
+046386:(38): Registering ntf
+046386:(38): (De)registering complete
+The telnetenable is running ...
+hyd: some interface(s) are not ready.
+hyd: ERROR: Private network interface checking failed
+IPv6: ADDRCONF(NETDEV_UP): brwan: link is not ready
+net-scan backgroud start scan...
+[net-scan] start scan devices...
+[wlan]===time:Fri Sep 27 12:31:28 UTC 2024   command:wlan up============== 
+[wlan]=========time:Fri Sep 27 12:31:28 UTC 2024 wlan up start==================
+Config commit is not allowed during booting
+qcawifi: enable radio wifi0
+__mm_init_module 
+ath_dfs: Version 2.0.0
+Copyright (c) 2005-2006 Atheros Communications, Inc. All Rights Reserved
+ath_spectral: Version 2.0.0
+Copyright (c) 2005-2009 Atheros Communications, Inc. All Rights Reserved
+ath_hal: 0.9.17.1 (AR5416, AR9380, WRITE_EEPROM, 11D)
+ath_rate_atheros: Copyright (c) 2001-2005 Atheros Communications, Inc, All Rights Reserved
+ath_tx99: Version 2.0
+Copyright (c) 2010 Atheros Communications, Inc, All Rights Reserved
+ath_dev: Copyright (c) 2001-2007 Atheros Communications, Inc, All Rights Reserved
+ath_da_pci:  (Atheros/multi-bss)
+ *********** IPQ4019  *************Wifi0 CPU frequency 250000000
+hif_target_sync_ahb: Got FW signal, retries = 1hif_ahb_enable_bus: X - hif_type = 0xd, target_type = 0xbhif_config_ce: ce_init donehif_config_ce: X, ret = 0hif_set_hia: Ehif_pci_bus_configure: hif_set_hia donehif_configure_irq: Ehif_enable: X OKhif_napi_create: NAPI structures initializedhif_napi_create: NAPI id 6 created for pipe 5qca_napi_create: napi instance 32 created on pipe 4
+hif_napi_event: received evnt: CONF cmd; v = 1 (state=0x1)hif_napi_event: setting configuration to ON
+__ol_ath_attach() Allocated scn da4804c0
+nss is not enabled on this platform
+nss register id -1 offload mode enabled = 0 nss config 0 Target Type b 
+__ol_ath_attach: dev name wifi0
+ol_ath_attach interface_id 0
+ol_target_init() BMI inited.
+ol_target_init() BMI Get Target Info.
+Chip id: 0xb, chip version: 0x1000000
+
+ CE WAR Disabled
+NUM_DEV=1 FWMODE=0x2 FWSUBMODE=0x0 FWBR_BUF 0
+ol_target_init() configure Target .
+
+ Target Version is 1000000
+
+ Flash Download Address  c0000 
+ol_transfer_bin_file: flash data file defined
+ol_transfer_bin_file[3803] Get Caldata for wifi0.
+qdf_fs_read[59], Open File /tmp/wifi0.caldata SUCCESS!!file system magic:16914836super blocksize:4096inode 7306file size:12288qdf_fs_read[79]: caldata data size mismatch, fsize=12288, cal_size=12064=====checksum:0====
+qc98xx_verify_checksum: flash checksum passed: 0x2346
+ol_transfer_bin_file 3879: Download Flash data len 12064
+Board extended Data download address: 0x0
+
+ Board data initialized
+ol_ath_download_firmware: Download OTP, flash download ADDRESS 0xc0000
+
+ Selecting  OTP binary for CHIP Version -1610612717
+ath10k_ahb a000000.wifi: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 0, Download data len 4680
+
+ First OTP send param 8000
+ol_ath_download_firmware :First OTP download and Execute is good address:0x5000 return param 4660
+ol_ath_download_firmware:##Board Id 20 , CHIP Id 0
+ol_ath_download_firmware: BOARDDATA DOWNLOAD TO address 0xc0000
+
+ wifi0: Selecting board data file name boardData_1_0_IPQ4019_DK04_2G.bin
+ol_transfer_bin_file: Board Data File download to address=0xc0000 file name=IPQ4019/hw.1/boardData_1_0_IPQ4019_DK04_2G.bin
+ath10k_ahb a000000.wifi: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 3, Download data len 12064
+Board extended Data download address: 0x0
+ol_ath_download_firmware: Using 0x1234 for the remainder of init
+
+ Selecting  OTP binary for CHIP Version -1610612717
+ath10k_ahb a000000.wifi: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 0, Download data len 4680
+
+ [Flash] : Ignore Module param
+
+ Second otp download Param 10000 
+ol_ath_download_firmware : Second OTP download and Execute is good, param=0x0 
+
+ Mission mode: Firmware CHIP Version -1610612717
+ath10k_ahb a000000.wifi: Firmware loaded from user helper succesfully
+ol_swap_seg_alloc: Successfully allocated memory for SWAP size=262144 
+ath10k_ahb a000000.wifi: Firmware loaded from user helper succesfully
+Swap: bytes_left to copy: fw:16; dma_page:100109
+Swap: wrong length read:0
+ol_swap_wlan_memory_expansion: Swap total_bytes copied: 162035 Target address 417c80 
+scn=da4804c0  target_write_addr=417c80 seg_info=dcc43210 
+ol_transfer_swap_struct:Code swap structure successfully downloaded for bin type =2 
+bin_filename=IPQ4019/hw.1/athwlan.bin swap_filename=/lib/firmware/IPQ4019/hw.1/athwlan.codeswap.bin 
+ol_transfer_bin_file: Downloading firmware file: IPQ4019/hw.1/athwlan.bin
+ath10k_ahb a000000.wifi: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 1, Download data len 368384
+ol_target_init() Download FW done. 
+ol_ath_attach() WMI attached. wmi_handle dec52000 
+wmi_unified_register_event_handler: Event id 62 is unavailable
++htc_create ..  HIF :dac88000-htc_create: (0xde887800)
+htc_wmi_init() HT Create . de887800
+htc_wmi_init 7549 host_enable 0 nss_nwifi_offload 0
+ol_ath_set_default_tgt_config : AC Minfree buffer allocation through module param (umac.ko)
+ OL_ACBKMinfree : 0
+ OL_ACBEMinfree : 0
+ OL_ACVIMinfree : 0
+ OL_ACVOMinfree : 0
+hif_enable_fastpath, Enabling fastpath mode
++HWT
+hif_completion_thread_startup: pipe_num:0 pipe_info:0xdac8c578hif_completion_thread_startup: pipe_num:3 pipe_info:0xdac8c650hif_completion_thread_startup: pipe_num:4 pipe_info:0xdac8c698
+-HWT
+Startup Mode-0 set
+pdev attach   (null) -1 
+
+<=== cfg max peer id 1056 ====>
+htt_peer_map_timer_init Enter pdev da238000 hrtimer da23c890
+
+ htt_alloc_peer_map_mem : Alloc Success : host q vaddr dacd4000 paddr 9acd4000
+
+ htt_alloc_peer_map_mem : Flush Interval Configured to 256 pkts
+ol_txrx_pdev_attach: 2500 tx desc's allocated ; range starts from d9ec0000
+Firmware_Build_Number:14 
+FW wireless modes: 0x680c
+num_rf_chain:0x00000002  ht_cap_info:0x0000085b  vht_cap_info:0x339959b2  vht_supp_mcs:0x0000fffa
+btcoex_support 0, wlan_prio_gpio 0, coex_gpio_pin 0 0 0
+wmi_service_coex_gpio 1, wmi_service_4_wire_coex_support 1, coex_version 0
+
+Sending Ext resource cfg: HOST PLATFORM as 0
+fw_feature_bitmap as 50 to TGT
+ol_ath_service_ready_event: tt_support: 1
+ol_ath_service_ready_event: periodic_chan_stats: 1
+ol_ath_service_ready_event: sw_cal_support_check_flag: 1
+Peer Caching Enabled ; num_peers = 530, num_active_peers = 52 num_tids = 104, num_vdevs = 17
+idx 1 req 2  num_units 1 num_unit_info 12 unit size 256 actual units 53 
+ol_ath_alloc_host_mem_chunk req_id 2 idx 0 num_units 53 unit_len 256,
+idx 2 req 3  num_units 1 num_unit_info 12 unit size 1024 actual units 53 
+ol_ath_alloc_host_mem_chunk req_id 3 idx 1 num_units 53 unit_len 1024,
+idx 3 req 4  num_units 1 num_unit_info 12 unit size 4096 actual units 53 
+ol_ath_alloc_host_mem_chunk req_id 4 idx 2 num_units 53 unit_len 4096,
+idx 0 req 1  num_units 0 num_unit_info 2 unit size 744 actual units 531 
+ol_ath_alloc_host_mem_chunk req_id 1 idx 3 num_units 531 unit_len 744,
+idx 4 req 6  num_units 35 num_unit_info 0 unit size 3072 actual units 35 
+ol_ath_alloc_host_mem_chunk req_id 6 idx 4 num_units 35 unit_len 3072,
+idx 5 req 7  num_units 1 num_unit_info 0 unit size 6144 actual units 1 
+ol_ath_alloc_host_mem_chunk req_id 7 idx 5 num_units 1 unit_len 6144,
+idx 6 req 5  num_units 0 num_unit_info 2 unit size 2044 actual units 531 
+ol_ath_alloc_host_mem_chunk req_id 5 idx 6 num_units 531 unit_len 2044,
+Support not added yet for Service 91
+Support not added yet for Service 92
+No EXT_MSG send INIT now
+chunk 0 len 13568 requested , ptr  0x9af00000
+chunk 1 len 54272 requested , ptr  0x9acf0000
+chunk 2 len 217088 requested , ptr  0x99f40000
+chunk 3 len 395064 requested , ptr  0x99f80000
+chunk 4 len 107520 requested , ptr  0x99f20000
+chunk 5 len 6144 requested , ptr  0x9ac50000
+chunk 6 len 1085364 requested , ptr  0x99800000
+ol_ath_service_ready_event[4264] WAPI MBSSID 2 
+Version = 16777216 3  status = 0
+ol_ath_connect_htc() WMI is ready
+target uses HTT version 2.2; host uses 2.2
+htt_h2t_frag_desc_bank_cfg_msg - HTT_H2T_MSG_TYPE_FRAG_DESC_BANK_CFG sent to FW for radio ID = 0
+ol_ath_attach() connect HTC. 
+bypasswmi : 0
+ol_regdmn_start: reg-domain param: regdmn=0, countryName=, wModeSelect=FFFFFFFF, netBand=FFFFFFFF, extendedChanMode=0.
+ol_regdmn_init_channels: !avail mode 0x680c (0x2) flags 0x2150
+ol_regdmn_init_channels: !avail mode 0x680c (0x1) flags 0x140
+DNI: Freq:2412  POWERLIMIT DISABLE === 
+DNI: Freq:2417  POWERLIMIT DISABLE === 
+DNI: Freq:2422  POWERLIMIT DISABLE === 
+DNI: Freq:2427  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2447  POWERLIMIT DISABLE === 
+DNI: Freq:2452  POWERLIMIT DISABLE === 
+DNI: Freq:2457  POWERLIMIT DISABLE === 
+DNI: Freq:2462  POWERLIMIT DISABLE === 
+DNI: Freq:2412  POWERLIMIT DISABLE === 
+DNI: Freq:2417  POWERLIMIT DISABLE === 
+DNI: Freq:2422  POWERLIMIT DISABLE === 
+DNI: Freq:2427  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2447  POWERLIMIT DISABLE === 
+DNI: Freq:2452  POWERLIMIT DISABLE === 
+DNI: Freq:2457  POWERLIMIT DISABLE === 
+DNI: Freq:2462  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x680c (0x20) flags 0xd0
+ol_regdmn_init_channels: !avail mode 0x680c (0x40) flags 0x150
+DNI: Freq:2412  POWERLIMIT DISABLE === 
+DNI: Freq:2417  POWERLIMIT DISABLE === 
+DNI: Freq:2422  POWERLIMIT DISABLE === 
+DNI: Freq:2427  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2447  POWERLIMIT DISABLE === 
+DNI: Freq:2452  POWERLIMIT DISABLE === 
+DNI: Freq:2457  POWERLIMIT DISABLE === 
+DNI: Freq:2462  POWERLIMIT DISABLE === 
+DNI: Freq:2412  POWERLIMIT DISABLE === 
+DNI: Freq:2417  POWERLIMIT DISABLE === 
+DNI: Freq:2422  POWERLIMIT DISABLE === 
+DNI: Freq:2427  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2447  POWERLIMIT DISABLE === 
+DNI: Freq:2452  POWERLIMIT DISABLE === 
+DNI: Freq:2457  POWERLIMIT DISABLE === 
+DNI: Freq:2462  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x680c (0x1000) flags 0x10100
+ol_regdmn_init_channels: !avail mode 0x680c (0x8000) flags 0x20100
+ol_regdmn_init_channels: !avail mode 0x680c (0x10000) flags 0x40100
+ol_regdmn_init_channels: !avail mode 0x680c (0x20000) flags 0x100100
+ol_regdmn_init_channels: !avail mode 0x680c (0x40000) flags 0x200100
+ol_regdmn_init_channels: !avail mode 0x680c (0x80000) flags 0x400100
+ol_regdmn_init_channels: !avail mode 0x680c (0x100000) flags 0x800100
+ol_regdmn_init_channels: !avail mode 0x680c (0x200000) flags 0x4000100
+ol_regdmn_init_channels: !avail mode 0x680c (0x400000) flags 0x8000100
+OL Resmgr Init-ed
+ieee80211_bsteering_attach: Band steering initialized
+acfg_attach: 2884: Netlink socket created:dee99400
+SPECTRAL : get_capability not registered
+HAL_CAP_PHYDIAG : Capable
+SPECTRAL : Need to fix the capablity check for RADAR (spectral_attach : 237)
+SPECTRAL : get_capability not registered
+HAL_CAP_RADAR   : Capable
+SPECTRAL : Need to fix the capablity check for SPECTRAL
+ (spectral_attach : 242)
+SPECTRAL : get_capability not registered
+HAL_CAP_SPECTRAL_SCAN : Capable
+SPECTRAL : get_tsf64 not registered
+spectral_init_netlink 78 NULL SKB
+Green-AP : Green-AP : Attached
+
+Green-AP : Attached
+rate power table override is only supported for AR98XX
+ol_ath_smart_ant_attach: Hardware doest not support Smart Antenna.
+ol_if_dfs_attach: called; ptr=d9ff198c, radar_info=dac81c30
+dfs_attach: event log enabled by default
+>>>> CB Set   (null)
+ol_ath_attach() UMAC attach . 
+
+ BURSTING enabled by default
+ol_ath_attach: Set global_ic[1] ..ptr:bf9e905c
+ath_lowi_if_netlink_init NETLINK_KERNEL_CREATE FAILED
+LOWI driver intferace socket init failed __investigate__ 
+osif_wrap_attach:441 osif wrap attached
+osif_wrap_devt_init:402 osif wrap dev table init done
+ Wrap Attached: Wrap_com =dcef7000 ic->ic_wrap_com=dcef7000 &wrap_com->wc_devt=dcef7000 
+__ol_ath_attach: needed_headroom reservation 60
+ol_ath_thermal_mitigation_attach: --
+ol_ath_ahb_probe num_radios=0, wifi_radios[0].sc = da4804c0 wifi_radio_type = 2
+ath_sysfs_diag_init: diag_fsattr 
+ *********** IPQ4019  *************Wifi1 CPU frequency 250000000
+hif_target_sync_ahb: Got FW signal, retries = 1hif_ahb_enable_bus: X - hif_type = 0xd, target_type = 0xbhif_config_ce: ce_init donehif_config_ce: X, ret = 0hif_set_hia: Ehif_pci_bus_configure: hif_set_hia donehif_configure_irq: Ehif_enable: X OKhif_napi_create: NAPI structures initializedhif_napi_create: NAPI id 6 created for pipe 5qca_napi_create: napi instance 32 created on pipe 4
+hif_napi_event: received evnt: CONF cmd; v = 1 (state=0x1)hif_napi_event: setting configuration to ON
+__ol_ath_attach() Allocated scn d9a404c0
+nss is not enabled on this platform
+nss register id -1 offload mode enabled = 0 nss config 0 Target Type b 
+__ol_ath_attach: dev name wifi1
+ol_ath_attach interface_id 1
+ol_target_init() BMI inited.
+ol_target_init() BMI Get Target Info.
+Chip id: 0xb, chip version: 0x1000000
+
+ CE WAR Disabled
+NUM_DEV=1 FWMODE=0x2 FWSUBMODE=0x0 FWBR_BUF 0
+ol_target_init() configure Target .
+
+ Target Version is 1000000
+
+ Flash Download Address  c0000 
+ol_transfer_bin_file: flash data file defined
+ol_transfer_bin_file[3803] Get Caldata for wifi1.
+qdf_fs_read[59], Open File /tmp/wifi1.caldata SUCCESS!!file system magic:16914836super blocksize:4096inode 7311file size:12288qdf_fs_read[79]: caldata data size mismatch, fsize=12288, cal_size=12064=====checksum:0====
+qc98xx_verify_checksum: flash checksum passed: 0xa740
+ol_transfer_bin_file 3879: Download Flash data len 12064
+Board extended Data download address: 0x0
+
+ Board data initialized
+ol_ath_download_firmware: Download OTP, flash download ADDRESS 0xc0000
+
+ Selecting  OTP binary for CHIP Version -1610612717
+ath10k_ahb a800000.wifi: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 0, Download data len 4680
+
+ First OTP send param 8000
+ol_ath_download_firmware :First OTP download and Execute is good address:0x5400 return param 4660
+ol_ath_download_firmware:##Board Id 21 , CHIP Id 0
+ol_ath_download_firmware: BOARDDATA DOWNLOAD TO address 0xc0000
+
+ wifi1: Selecting board data file name boardData_1_0_IPQ4019_DK04_5G.bin
+ol_transfer_bin_file: Board Data File download to address=0xc0000 file name=IPQ4019/hw.1/boardData_1_0_IPQ4019_DK04_5G.bin
+ath10k_ahb a800000.wifi: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 3, Download data len 12064
+Board extended Data download address: 0x0
+ol_ath_download_firmware: Using 0x1234 for the remainder of init
+
+ Selecting  OTP binary for CHIP Version -1610612717
+ath10k_ahb a800000.wifi: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 0, Download data len 4680
+udhcp client (v0.9.8) started
+
+ [Flash] : Ignore Module param
+
+ Second otp download Param 10000 
+ol_ath_download_firmware : Second OTP download and Execute is good, param=0x0 
+
+ Mission mode: Firmware CHIP Version -1610612717
+ath10k_ahb a800000.wifi: Firmware loaded from user helper succesfully
+ol_swap_seg_alloc: Successfully allocated memory for SWAP size=262144 
+ath10k_ahb a800000.wifi: Firmware loaded from user helper succesfully
+no 6RD parameters available, so unset 6rd related config
+Swap: bytes_left to copy: fw:16; dma_page:100109
+Swap: wrong length read:0
+ol_swap_wlan_memory_expansion: Swap total_bytes copied: 162035 Target address 417c80 
+scn=d9a404c0  target_write_addr=417c80 seg_info=d99db410 
+ol_transfer_swap_struct:Code swap structure successfully downloaded for bin type =2 
+Name:        vol_rae
+bin_filename=IPQ4019/hw.1/athwlan.bin swap_filename=/lib/firmware/IPQ4019/hw.1/athwlan.codeswap.bin 
+ol_transfer_bin_file: Downloading firmware file: IPQ4019/hw.1/athwlan.bin
+ath10k_ahb a800000.wifi: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 1, Download data len 368384
+[1727440294]collect installation event: sysReboot, /tmp/router-analytics/ra_data/installation/0059
+4+0 records in
+4+0 records out
+524288 bytes (512.0KB) copied, 0.019518 seconds, 25.6MB/s
+Config commit is not allowed during booting
+16384+0 records in
+16384+0 records out
+16384 bytes (16.0KB) copied, 0.204140 seconds, 78.4KB/s
+[net-scan]receive SIG10..
+[fing-devices]receive SIG10..
+DIL Total device num=0
+ol_target_init() Download FW done. 
+ol_ath_attach() WMI attached. wmi_handle d9ae0000 
+wmi_unified_register_event_handler: Event id 62 is unavailable
++htc_create ..  HIF :d9958000-htc_create: (0xd9b48000)
+htc_wmi_init() HT Create . d9b48000
+htc_wmi_init 7549 host_enable 0 nss_nwifi_offload 0
+ol_ath_set_default_tgt_config : AC Minfree buffer allocation through module param (umac.ko)
+ OL_ACBKMinfree : 0
+ OL_ACBEMinfree : 0
+ OL_ACVIMinfree : 0
+ OL_ACVOMinfree : 0
+hif_enable_fastpath, Enabling fastpath mode4216+0 records in
+4216+0 records out
++HWT
+hif_completion_thread_startup: pipe_num:0 pipe_info:0xd995c578
+2158592 bytes (2.1MB) copied, 0.612543 seconds, 3.4MB/s
+hif_completion_thread_startup: pipe_num:3 pipe_info:0xd995c650hif_completion_thread_startup: pipe_num:4 pipe_info:0xd995c698
+-HWT
+Startup Mode-0 set
+pdev attach   (null) -1 
+
+<=== cfg max peer id 1056 ====>
+htt_peer_map_timer_init Enter pdev d8c70000 hrtimer d8c74890
+
+ htt_alloc_peer_map_mem : Alloc Success : host q vaddr d8c82000 paddr 98c82000
+
+ htt_alloc_peer_map_mem : Flush Interval Configured to 256 pkts
+ol_txrx_pdev_attach: 2500 tx desc's allocated ; range starts from d8900000
+Firmware_Build_Number:14 
+FW wireless modes: 0x1f9001
+num_rf_chain:0x00000002  ht_cap_info:0x0000085b  vht_cap_info:0x339959b2  vht_supp_mcs:0x0000fffa
+wmi_service_coex_gpio 0, wmi_service_4_wire_coex_support 0, coex_version 0
+
+Sending Ext resource cfg: HOST PLATFORM as 0
+fw_feature_bitmap as 50 to TGT
+ol_ath_service_ready_event: tt_support: 1
+ol_ath_service_ready_event: periodic_chan_stats: 1
+ol_ath_service_ready_event: sw_cal_support_check_flag: 1
+Peer Caching Enabled ; num_peers = 530, num_active_peers = 52 num_tids = 104, num_vdevs = 17
+idx 1 req 2  num_units 1 num_unit_info 12 unit size 256 actual units 53 
+ol_ath_alloc_host_mem_chunk req_id 2 idx 0 num_units 53 unit_len 256,
+idx 2 req 3  num_units 1 num_unit_info 12 unit size 1024 actual units 53 
+ol_ath_alloc_host_mem_chunk req_id 3 idx 1 num_units 53 unit_len 1024,
+idx 3 req 4  num_units 1 num_unit_info 12 unit size 4096 actual units 53 
+ol_ath_alloc_host_mem_chunk req_id 4 idx 2 num_units 53 unit_len 4096,
+idx 0 req 1  num_units 0 num_unit_info 2 unit size 744 actual units 531 
+ol_ath_alloc_host_mem_chunk req_id 1 idx 3 num_units 531 unit_len 744,
+idx 4 req 6  num_units 35 num_unit_info 0 unit size 3072 actual units 35 
+ol_ath_alloc_host_mem_chunk req_id 6 idx 4 num_units 35 unit_len 3072,
+idx 5 req 7  num_units 1 num_unit_info 0 unit size 6144 actual units 1 
+tar: policy_version: time stamp 2025-11-07 00:36:57 is 35035521.ol_ath_alloc_host_mem_chunk req_id 7 idx 5 num_units 1 unit_len 6144,
+620458707 s in the future
+tar: rae_version: time stamp 2025-11-idx 6 req 5  num_units 0 num_unit_info 2 unit size 2044 actual units 531 
+07 00:36:58 is 35035522.619702727 s in the future
+tar: RAE_Poliol_ath_alloc_host_mem_chunk req_id 5 idx 6 num_units 531 unit_len 2044,
+cy.json: time stamp 2025-11-07 00:36:57 is 35035521.619340144 s Support not added yet for Service 91
+in the future
+tar: usr/sbin/aws-iot: time stamp 2025-11-07 00:3Support not added yet for Service 92
+6:58 is 35035522.615461144 s in the future
+tar: usr/sbin/data_cNo EXT_MSG send INIT now
+ollector: time stamp 2025-11-07 00:36:58 is 35035522.598400311 schunk 0 len 13568 requested , ptr  0x9cf04000
+ in the future
+chunk 1 len 54272 requested , ptr  0x988f0000
+chunk 2 len 217088 requested , ptr  0x98980000
+chunk 3 len 395064 requested , ptr  0x98a00000
+chunk 4 len 107520 requested , ptr  0x98960000
+chunk 5 len 6144 requested , ptr  0x9af22000
+chunk 6 len 1085364 requested , ptr  0x98400000
+ol_ath_service_ready_event[4264] WAPI MBSSID 2 
+Version = 16777216 3  status = 0
+ol_ath_connect_htc() WMI is ready
+target uses HTT version 2.2; host uses 2.2
+htt_h2t_frag_desc_bank_cfg_msg - HTT_H2T_MSG_TYPE_FRAG_DESC_BANK_CFG sent to FW for radio ID = 1
+ol_ath_attach() connect HTC. 
+bypasswmi : 0
+ol_ath_attach: low_5ghz: 5150  high_5gh: 5330 
+tar: usr/sbin/subscribe_publish_sample: time stamp 2025-11-07 00ol_regdmn_start: reg-domain param: regdmn=0, countryName=, wModeSelect=FFFFFFFF, netBand=FFFFFFFF, extendedChanMode=0.
+:36:58ol_regdmn_init_channels: !avail mode 0x1f9001 (0x2) flags 0x2150
+ is 35035522.454742936DNI: Freq:5180  POWERLIMIT DISABLE === 
+ s in the future
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x4) flags 0xa0
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x8) flags 0xc0
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x20) flags 0xd0
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x40) flags 0x150
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x800) flags 0x10080
+Config commit is not allowed during booting
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x2000) flags 0x20080
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x4000) flags 0x40080
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+killall: aws-iot: no process killed
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+rm: can't remove '/var/run/aws_iot.pid': No such file or directoDNI: Freq:5180  POWERLIMIT DISABLE === 
+ry
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+Add VHT80 channel: 5210
+Add VHT80 channel: 5290
+Add VHT80 channel: 5530
+Add VHT80 channel: 5610
+Add VHT80 channel: 5690
+Add VHT80 channel: 5775
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x200000) flags 0x4000100
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x400000) flags 0x8000100
+freq=58 
+OL Resmgr Init-ed
+ieee80211_bsteering_attach: Band steering initialized
+acfg_attach: Offload using existing sock dee99400
+SPECTRAL : get_capability not registered
+HAL_CAP_PHYDIAG : Capable
+SPECTRAL : Need to fix the capablity check for RADAR (spectral_attach : 237)
+SPECTRAL : get_capability not registered
+HAL_CAP_RADAR   : Capable
+SPECTRAL : Need to fix the capablity check for SPECTRAL
+ (spectral_attach : 242)
+SPECTRAL : get_capability not registered
+HAL_CAP_SPECTRAL_SCAN : Capable
+SPECTRAL : get_tsf64 not registered
+spectral_init_netlink 78 NULL SKB
+Green-AP : Green-AP : Attached
+
+Green-AP : Attached
+rate power table override is only supported for AR98XX
+ol_ath_smart_ant_attach: Hardware doest not support Smart Antenna.
+ol_if_dfs_attach: called; ptr=d857198c, radar_info=dac81c30
+dfs_attach: event log enabled by default
+>>>> CB Set   (null)
+ol_ath_attach() UMAC attach . 
+
+ BURSTING enabled by default
+ol_ath_attach: Set global_ic[2] ..ptr:bf9e905c
+ath_lowi_if_netlink_init NETLINK_KERNEL_CREATE FAILED
+LOWI driver intferace socket init failed __investigate__ 
+osif_wrap_attach:441 osif wrap attached
+osif_wrap_devt_init:402 osif wrap dev table init done
+ Wrap Attached: Wrap_com =dd360400 ic->ic_wrap_com=dd360400 &wrap_com->wc_devt=dd360400 
+__ol_ath_attach: needed_headroom reservation 60
+ol_ath_thermal_mitigation_attach: --
+ol_ath_ahb_probe num_radios=1, wifi_radios[1].sc = d9a404c0 wifi_radio_type = 2
+ath_sysfs_diag_init: diag_fsattr 
+ath_ol_pci:  (Atheros/multi-bss)
+hif_pci_enable_bus: con_mode = 0x0, device_id = 0x46PCI: enabling device 0000:00:00.0 (0144 -> 0147)
+PCI: enabling device 0000:01:00.0 (0140 -> 0142)
+hif_pci_enable_bus: hif_enable_pci done *********** QCA9984 *************hif_pci_enable_bus: hif_type = 0xc, target_type = 0xahif_pci_enable_bus: hif_pci_probe_tgt_wakeup donehif_target_sync: Loop checking FW signalhif_target_sync: Got FW signal, retries = 0Switching to Tx Mode-1 Threshold 280
+
+hif_config_ce: ce_init donehif_config_ce: X, ret = 0hif_set_hia: Ehif_set_hia_extnd: E
+chip_id 0xa chip_revision 0x0
+
+ CLOCK PLL skipped
+hif_set_hia_extnd: setting the target pll frac ffffffff intval ffffffff
+hif_set_hia_extnd: no frac provided, skipping pre-configuring PLL
+hif_set_hia_extnd: targ_clk is not provided, skipping pre-configuring PLL
+hif_pci_bus_configure: hif_set_hia donehif_configure_irq: Ehif_pci_configure_legacy_irq: Ehif_pci_configure_legacy_irq: X, ret = 0hif_enable: X OKhif_napi_create: NAPI structures initializedhif_napi_create: NAPI id 6 created for pipe 5qca_napi_create: napi instance 32 created on pipe 4
+hif_napi_event: received evnt: CONF cmd; v = 1 (state=0x1)hif_napi_event: setting configuration to ON
+__ol_ath_attach() Allocated scn d8a804c0
+nss is not enabled on this platform
+nss register id -1 offload mode enabled = 0 nss config 0 Target Type a 
+__ol_ath_attach: dev name wifi2
+ol_ath_attach interface_id 2
+ol_target_init() BMI inited.
+ol_target_init() BMI Get Target Info.
+Chip id: 0xa, chip version: 0x1000000
+
+ CE WAR Disabled
+NUM_DEV=1 FWMODE=0x2 FWSUBMODE=0x0 FWBR_BUF 0
+ol_target_init() configure Target .
+
+ Target Version is 1000000
+
+ Flash Download Address  c0000 
+ol_transfer_bin_file: flash data file defined
+ol_transfer_bin_file[3803] Get Caldata for wifi2.
+qdf_fs_read[59], Open File /tmp/wifi2.caldata SUCCESS!!file system magic:16914836super blocksize:4096inode 7314file size:12288qdf_fs_read[79]: caldata data size mismatch, fsize=12288, cal_size=12064=====checksum:0====
+qc98xx_verify_checksum: flash checksum passed: 0x6a02
+ol_transfer_bin_file 3879: Download Flash data len 12064
+Board extended Data download address: 0x0
+
+ Board data initialized
+ol_ath_download_firmware: Download OTP, flash download ADDRESS 0xc0000
+
+ Selecting  OTP binary for CHIP Version 0
+ath_ol_pci 0000:01:00.0: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 0, Download data len 9024
+Group schedule demon is running! 
+Acl timer init!!
+Init device timer!!
+Update guest schedule 0 status 1 for group 11!!
+Init devices successfull
+
+ First OTP send param 8000
+time zone index is : 0
+Run NTP Client with setting: pri:time-g.netgear.com sec:time-h.netgear.com
+Starting Firewall...
+xt_CT: netfilter: NOTRACK target is deprecated, use CT instead or upgrade iptables
+Done!
+[wlan]===time:Fri Sep 27 12:31:37 UTC 2024   command:wlan stainfo============== 
+will set soap sync psk:9545dac4d1f9f3ebc7ae2cc5ffb182d5d70356f79e4368ba25d1d3ca01b17b39
+Config commit is not allowed during booting
+EXT4-fs (mtdblock40): mounted filesystem without journal. Opts: (null)
+ol_ath_download_firmware :First OTP download and Execute is good address:0x1800 return param 4660
+ol_ath_download_firmware:##Board Id 6 , CHIP Id 0
+ol_ath_download_firmware: BOARDDATA DOWNLOAD TO address 0xc0000
+Switching to Tx Mode-1 Threshold 280
+ol_transfer_bin_file: Board Data File download to address=0xc0000 file name=QCA9984/hw.1/boardData_QCA9984_CUS239_high_band_5G_v1_006.bin
+ath_ol_pci 0000:01:00.0: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 3, Download data len 12064
+Board extended Data download address: 0x0
+ol_ath_download_firmware: Using 0x1234 for the remainder of init
+
+ Selecting  OTP binary for CHIP Version 0
+ath_ol_pci 0000:01:00.0: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 0, Download data len 9024
+
+ [Flash] : Ignore Module param
+
+ Second otp download Param 10000 
+bio: create slab <bio-1> at 1
+EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+EXT4-fs (mtdblock40): mounted filesystem without journal. Opts: (null)
+ol_ath_download_firmware : Second OTP download and Execute is good, param=0x0 
+
+ Mission mode: Firmware CHIP Version 0
+ath_ol_pci 0000:01:00.0: Firmware loaded from user helper succesfully
+ol_swap_seg_alloc: Successfully allocated memory for SWAP size=262144 
+ath_ol_pci 0000:01:00.0: Firmware loaded from user helper succesfully
+Swap: bytes_left to copy: fw:16; dma_page:26616
+Swap: wrong length read:0
+ol_swap_wlan_memory_expansion: Swap total_bytes copied: 235528 Target address 423408 
+scn=d8a804c0  target_write_addr=423408 seg_info=dcdbba10 
+ol_transfer_swap_struct:Code swap structure successfully downloaded for bin type =2 
+bin_filename=QCA9984/hw.1/athwlan.bin swap_filename=/lib/firmware/QCA9984/hw.1/athwlan.codeswap.bin 
+ol_transfer_bin_file: Downloading firmware file: QCA9984/hw.1/athwlan.bin
+ath_ol_pci 0000:01:00.0: Firmware loaded from user helper succesfully
+ol_transfer_bin_file 3684: downloading file 1, Download data len 379056
+ol_target_init() Download FW done. 
+ol_ath_attach() WMI attached. wmi_handle d8c86000 
+wmi_unified_register_event_handler: Event id 62 is unavailable
++htc_create ..  HIF :d89e0000-htc_create: (0xde9ef000)
+htc_wmi_init() HT Create . de9ef000
+htc_wmi_init 7549 host_enable 0 nss_nwifi_offload 0
+ol_ath_set_default_tgt_config : AC Minfree buffer allocation through module param (umac.ko)
+ OL_ACBKMinfree : 0
+ OL_ACBEMinfree : 0
+ OL_ACVIMinfree : 0
+ OL_ACVOMinfree : 0
+hif_enable_fastpath, Enabling fastpath mode
++HWT
+hif_completion_thread_startup: pipe_num:0 pipe_info:0xd89e4578hif_completion_thread_startup: pipe_num:3 pipe_info:0xd89e4650hif_completion_thread_startup: pipe_num:4 pipe_info:0xd89e4698
+-HWT
+Startup Mode-0 set
+pdev attach   (null) -1 
+
+<=== cfg max peer id 1056 ====>
+htt_peer_map_timer_init Enter pdev d7eb0000 hrtimer d7eb4890
+
+ htt_alloc_peer_map_mem : Alloc Success : host q vaddr dd3ca000 paddr 9d3ca000
+
+ htt_alloc_peer_map_mem : Flush Interval Configured to 256 pkts
+ol_txrx_pdev_attach: 2500 tx desc's allocated ; range starts from d7b40000
+Firmware_Build_Number:14 
+FW wireless modes: 0x7f9001
+num_rf_chain:0x00000004  ht_cap_info:0x0000185b  vht_cap_info:0x339b79fa  vht_supp_mcs:0x0000ffaa
+wmi_service_coex_gpio 0, wmi_service_4_wire_coex_support 0, coex_version 0
+
+Sending Ext resource cfg: HOST PLATFORM as 0
+fw_feature_bitmap as 50 to TGT
+ol_ath_service_ready_event: tt_support: 1
+ol_ath_service_ready_event: periodic_chan_stats: 1
+ol_ath_service_ready_event: sw_cal_support_check_flag: 1
+Peer Caching Enabled ; num_peers = 530, num_active_peers = 52 num_tids = 104, num_vdevs = 17
+idx 1 req 2  num_units 1 num_unit_info 12 unit size 256 actual units 53 
+ol_ath_alloc_host_mem_chunk req_id 2 idx 0 num_units 53 unit_len 256,
+idx 2 req 3  num_units 1 num_unit_info 12 unit size 1024 actual units 53 
+ol_ath_alloc_host_mem_chunk req_id 3 idx 1 num_units 53 unit_len 1024,
+idx 3 req 4  num_units 1 num_unit_info 12 unit size 4096 actual units 53 
+ol_ath_alloc_host_mem_chunk req_id 4 idx 2 num_units 53 unit_len 4096,
+idx 0 req 1  num_units 0 num_unit_info 2 unit size 2216 actual units 531 
+ol_ath_alloc_host_mem_chunk req_id 1 idx 3 num_units 531 unit_len 2216,
+idx 4 req 6  num_units 35 num_unit_info 0 unit size 3072 actual units 35 
+ol_ath_alloc_host_mem_chunk req_id 6 idx 4 num_units 35 unit_len 3072,
+idx 5 req 7  num_units 1 num_unit_info 0 unit size 12288 actual units 1 
+ol_ath_alloc_host_mem_chunk req_id 7 idx 5 num_units 1 unit_len 12288,
+idx 6 req 5  num_units 0 num_unit_info 2 unit size 1980 actual units 531 
+ol_ath_alloc_host_mem_chunk req_id 5 idx 6 num_units 531 unit_len 1980,
+Support not added yet for Service 91
+Support not added yet for Service 92
+No EXT_MSG send INIT now
+chunk 0 len 13568 requested , ptr  0x98bb0000
+chunk 1 len 54272 requested , ptr  0x97b30000
+chunk 2 len 217088 requested , ptr  0x97bc0000
+chunk 3 len 1176696 requested , ptr  0x97400000
+chunk 4 len 107520 requested , ptr  0x97520000
+chunk 5 len 12288 requested , ptr  0x97560000
+chunk 6 len 1051380 requested , ptr  0x97600000
+ol_ath_service_ready_event[4264] WAPI MBSSID 2 
+Version = 16777216 3  status = 0
+ol_ath_connect_htc() WMI is ready
+htt_h2t_frag_desc_bank_cfg_msg - HTT_H2T_MSG_TYPE_FRAG_DESC_BANK_CFG sent to FW for radio ID = 2
+target uses HTT version 2.2; host uses 2.2
+ol_ath_attach() connect HTC. 
+bypasswmi : 0
+ol_ath_attach: low_5ghz: 5490  high_5gh: 5850 
+ol_regdmn_start: reg-domain param: regdmn=0, countryName=, wModeSelect=FFFFFFFF, netBand=FFFFFFFF, extendedChanMode=0.
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x2) flags 0x2150
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5700  POWERLIMIT DISABLE === 
+DNI: Freq:5745  POWERLIMIT DISABLE === 
+DNI: Freq:5765  POWERLIMIT DISABLE === 
+DNI: Freq:5785  POWERLIMIT DISABLE === 
+DNI: Freq:5805  POWERLIMIT DISABLE === 
+DNI: Freq:5825  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x4) flags 0xa0
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x8) flags 0xc0
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x20) flags 0xd0
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x40) flags 0x150
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x800) flags 0x10080
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x2000) flags 0x20080
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x4000) flags 0x40080
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5700  POWERLIMIT DISABLE === 
+DNI: Freq:5745  POWERLIMIT DISABLE === 
+DNI: Freq:5765  POWERLIMIT DISABLE === 
+DNI: Freq:5785  POWERLIMIT DISABLE === 
+DNI: Freq:5805  POWERLIMIT DISABLE === 
+bio: create slab <bio-1> at 1
+DNI: Freq:5825  POWERLIMIT DISABLE === 
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5745  POWERLIMIT DISABLE === 
+DNI: Freq:5785  POWERLIMIT DISABLE === 
+EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5765  POWERLIMIT DISABLE === 
+DNI: Freq:5805  POWERLIMIT DISABLE === 
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5700  POWERLIMIT DISABLE === 
+DNI: Freq:5745  POWERLIMIT DISABLE === 
+DNI: Freq:5765  POWERLIMIT DISABLE === 
+DNI: Freq:5785  POWERLIMIT DISABLE === 
+DNI: Freq:5805  POWERLIMIT DISABLE === 
+DNI: Freq:5825  POWERLIMIT DISABLE === 
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5745  POWERLIMIT DISABLE === 
+DNI: Freq:5785  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5765  POWERLIMIT DISABLE === 
+DNI: Freq:5805  POWERLIMIT DISABLE === 
+Add VHT80 channel: 5210
+Add VHT80 channel: 5290
+Add VHT80 channel: 5530
+Add VHT80 channel: 5610
+Add VHT80 channel: 5690
+Add VHT80 channel: 5775
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5745  POWERLIMIT DISABLE === 
+DNI: Freq:5765  POWERLIMIT DISABLE === 
+DNI: Freq:5785  POWERLIMIT DISABLE === 
+DNI: Freq:5805  POWERLIMIT DISABLE === 
+Skipping VHT80 channel 5825
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5745  POWERLIMIT DISABLE === 
+DNI: Freq:5745  POWERLIMIT DISABLE === 
+DNI: Freq:5745  POWERLIMIT DISABLE === 
+DNI: Freq:5765  POWERLIMIT DISABLE === 
+DNI: Freq:5765  POWERLIMIT DISABLE === 
+DNI: Freq:5765  POWERLIMIT DISABLE === 
+DNI: Freq:5785  POWERLIMIT DISABLE === 
+DNI: Freq:5785  POWERLIMIT DISABLE === 
+DNI: Freq:5785  POWERLIMIT DISABLE === 
+DNI: Freq:5805  POWERLIMIT DISABLE === 
+DNI: Freq:5805  POWERLIMIT DISABLE === 
+DNI: Freq:5805  POWERLIMIT DISABLE === 
+freq=106 
+freq=122 
+freq=138 
+OL Resmgr Init-ed
+ieee80211_bsteering_attach: Band steering initialized
+acfg_attach: Offload using existing sock dee99400
+SPECTRAL : get_capability not registered
+HAL_CAP_PHYDIAG : Capable
+SPECTRAL : Need to fix the capablity check for RADAR (spectral_attach : 237)
+SPECTRAL : get_capability not registered
+HAL_CAP_RADAR   : Capable
+SPECTRAL : Need to fix the capablity check for SPECTRAL
+ (spectral_attach : 242)
+SPECTRAL : get_capability not registered
+HAL_CAP_SPECTRAL_SCAN : Capable
+SPECTRAL : get_tsf64 not registered
+spectral_init_netlink 78 NULL SKB
+Green-AP : Green-AP : Attached
+
+Green-AP : Attached
+rate power table override is only supported for AR98XX
+ol_if_dfs_attach: called; ptr=d778198c, radar_info=dac81c10
+dfs_attach: event log enabled by default
+>>>> CB Set   (null)
+ol_ath_attach() UMAC attach . 
+
+ BURSTING enabled by default
+ol_ath_attach: Set global_ic[3] ..ptr:bf9e905c
+ath_lowi_if_netlink_init NETLINK_KERNEL_CREATE FAILED
+LOWI driver intferace socket init failed __investigate__ 
+osif_wrap_attach:441 osif wrap attached
+osif_wrap_devt_init:402 osif wrap dev table init done
+ Wrap Attached: Wrap_com =dcf3be00 ic->ic_wrap_com=dcf3be00 &wrap_com->wc_devt=dcf3be00 
+__ol_ath_attach: needed_headroom reservation 60
+ol_ath_thermal_mitigation_attach: --
+ol_ath_pci_probe num_radios=2, wifi_radios[2].sc = d8a804c0 wifi_radio_type = 2
+ath_sysfs_diag_init: diag_fsattr 
+ pktlog_init: Initializing Pktlog for AR900B, pktlog_hdr_size = 16
++hif_update_pipe_callback pipeid 8
+-hif_update_pipe_callback
+ pktlog_init: Initializing Pktlog for AR900B, pktlog_hdr_size = 16
++hif_update_pipe_callback pipeid 8
+-hif_update_pipe_callback
+ pktlog_init: Initializing Pktlog for AR900B, pktlog_hdr_size = 16
++hif_update_pipe_callback pipeid 8
+-hif_update_pipe_callback
+Init wifison script
+__sa_init_module 
+No Direct-Attach chipsets found.
+Removing athdebug proc file
+ath_dev: driver unloaded
+ath_tx99: driver unloaded
+ath_rate_atheros: driver unloaded
+ath_hal: driver unloaded
+isCountryCodeValid: EEPROM regdomain 0x0
+ol_regdmn_init_channels: !avail mode 0x680c (0x2) flags 0x2150
+ol_regdmn_init_channels: !avail mode 0x680c (0x1) flags 0x140
+DNI: Freq:2412  POWERLIMIT DISABLE === 
+DNI: Freq:2417  POWERLIMIT DISABLE === 
+DNI: Freq:2422  POWERLIMIT DISABLE === 
+DNI: Freq:2427  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2447  POWERLIMIT DISABLE === 
+DNI: Freq:2452  POWERLIMIT DISABLE === 
+DNI: Freq:2457  POWERLIMIT DISABLE === 
+DNI: Freq:2462  POWERLIMIT DISABLE === 
+DNI: Freq:2467  POWERLIMIT DISABLE === 
+DNI: Freq:2472  POWERLIMIT DISABLE === 
+DNI: Freq:2412  POWERLIMIT DISABLE === 
+DNI: Freq:2417  POWERLIMIT DISABLE === 
+DNI: Freq:2422  POWERLIMIT DISABLE === 
+DNI: Freq:2427  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2447  POWERLIMIT DISABLE === 
+DNI: Freq:2452  POWERLIMIT DISABLE === 
+DNI: Freq:2457  POWERLIMIT DISABLE === 
+DNI: Freq:2462  POWERLIMIT DISABLE === 
+DNI: Freq:2467  POWERLIMIT DISABLE === 
+DNI: Freq:2472  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x680c (0x20) flags 0xd0
+ol_regdmn_init_channels: !avail mode 0x680c (0x40) flags 0x150
+DNI: Freq:2412  POWERLIMIT DISABLE === 
+DNI: Freq:2417  POWERLIMIT DISABLE === 
+DNI: Freq:2422  POWERLIMIT DISABLE === 
+DNI: Freq:2427  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2447  POWERLIMIT DISABLE === 
+DNI: Freq:2452  POWERLIMIT DISABLE === 
+DNI: Freq:2457  POWERLIMIT DISABLE === 
+DNI: Freq:2462  POWERLIMIT DISABLE === 
+DNI: Freq:2467  POWERLIMIT DISABLE === 
+DNI: Freq:2472  POWERLIMIT DISABLE === 
+DNI: Freq:2412  POWERLIMIT DISABLE === 
+DNI: Freq:2417  POWERLIMIT DISABLE === 
+DNI: Freq:2422  POWERLIMIT DISABLE === 
+DNI: Freq:2427  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2447  POWERLIMIT DISABLE === 
+DNI: Freq:2452  POWERLIMIT DISABLE === 
+DNI: Freq:2432  POWERLIMIT DISABLE === 
+DNI: Freq:2437  POWERLIMIT DISABLE === 
+DNI: Freq:2442  POWERLIMIT DISABLE === 
+DNI: Freq:2447  POWERLIMIT DISABLE === 
+DNI: Freq:2452  POWERLIMIT DISABLE === 
+DNI: Freq:2457  POWERLIMIT DISABLE === 
+DNI: Freq:2462  POWERLIMIT DISABLE === 
+DNI: Freq:2467  POWERLIMIT DISABLE === 
+DNI: Freq:2472  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x680c (0x1000) flags 0x10100
+ol_regdmn_init_channels: !avail mode 0x680c (0x8000) flags 0x20100
+ol_regdmn_init_channels: !avail mode 0x680c (0x10000) flags 0x40100
+ol_regdmn_init_channels: !avail mode 0x680c (0x20000) flags 0x100100
+ol_regdmn_init_channels: !avail mode 0x680c (0x40000) flags 0x200100
+ol_regdmn_init_channels: !avail mode 0x680c (0x80000) flags 0x400100
+ol_regdmn_init_channels: !avail mode 0x680c (0x100000) flags 0x800100
+ol_regdmn_init_channels: !avail mode 0x680c (0x200000) flags 0x4000100
+ol_regdmn_init_channels: !avail mode 0x680c (0x400000) flags 0x8000100
+set TXBF_SND_PERIOD: value 100 wmi_status 0
+ Disconnect_timeout value entered:10 
+ reconfiguration_timeout value entered:60 
+wlan_vap_create : enter. devhandle=0xda4804c0, opmode=IEEE80211_M_HOSTAP, flags=0x1
+send_vdev_create_cmd_non_tlv: ID = 0 Type = 1, Subtype = 0 VAP Addr = 3e:94:ed:35:50:28:
+ieee80211_mbo_vattach:MBO Initialized 
+ieee80211_oce_vattach: OCE Initialized 
+wlan_vap_create : exit. devhandle=0xda4804c0, vap=0xd7798000, opmode=IEEE80211_M_HOSTAP, flags=0x1.
+__ieee80211_smart_ant_init: Smart Antenna is not supported 
+Enabling TX checksum bit for the vap ath0 features 4000 
+Enabling SG bit for the vap ath0 features 4000 
+Enabling SG bit for the vap ath0 features 4000 
+Enabling TSO bit for the vap ath0 features 4000 
+Enabling LRO bit for the vap ath0 features 4000 
+VAP device ath0 created osifp: (de9eecc0) os_if: (d7798000)
+siwfreq
+Set freq vap 0 stop send + d7798000
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:7836 Comm:iwconfig :: PPID:6183 Comm:wlan <=< 
+Set freq vap 0 stop send -d7798000
+Set wait done --d7798000
+ME Pool succesfully initialized vaddr - dad40000 paddr - 0
+num_elems = 1424 buf_size - 64 pool_size = 102528
+Enable MCAST_TO_UCAST
+WARNING: Fragmentation with HT mode NOT ALLOWED!!
+vap-0(ath0):set SIOC80211NWID, 2 characters
+ 
+ DES SSID SET=on 
+vap-0(ath0):set SIOC80211NWID, 6 characters
+ 
+ DES SSID SET=ORBI10 
+
+----------------------------------------
+Adding or updating following vendor ie
+Vendor IE info Ioctl Csu bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 1
+MD id     : 31 
+ID                              : dd
+Len (OUI+ Pcapdata) in Bytes    : 11
+OUI                             : 0su bfee 1 mu bfee 0 su bfer 0 mu bfer 1 impl bf 0 sounding dim 1
+0146c
+Private capibility_data         : 0007010000000000
+-----su bfee 1 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+-----------------------------------
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+device ath0 entered promiscuous mode
+Config commit is not allowed during booting
+Config commit is not allowed during booting
+ieee80211_ioctl_siwmode: imr.ifm_active=131712, new mode=3, valid=1 
+ DEVICE IS DOWN ifname=ath0
+ DEVICE IS DOWN ifname=ath0
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:2212 Comm:hostapd :: PPID:1 Comm:procd <=< 
+Sending SCAN START cmd
+br0: port 2(ath0) entered forwarding state
+br0: port 2(ath0) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath0
+OK
+ol_scan_unregister_event_handler: Failed to unregister evhandler=bf9317a4 arg=d9920000
+
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xd7798000 
+send_vdev_down_cmd_non_tlv for vap 0 (dec52000)
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8102 Comm:iwpriv :: PPID:6183 Comm:wlan <=< 
+Sending SCAN START cmd
+wlan_vap_create : enter. devhandle=0xda4804c0, opmode=IEEE80211_M_HOSTAP, flags=0x1
+send_vdev_create_cmd_non_tlv: ID = 1 Type = 1, Subtype = 0 VAP Addr = 42:94:ed:35:50:28:
+ieee80211_mbo_vattach:MBO Initialized 
+ieee80211_oce_vattach: OCE Initialized 
+wlan_vap_create : exit. devhandle=0xda4804c0, vap=0xdcfe8000, opmode=IEEE80211_M_HOSTAP, flags=0x1.
+__ieee80211_smart_ant_init: Smart Antenna is not supported 
+Enabling TX checksum bit for the vap ath01 features 4000 
+Enabling SG bit for the vap ath01 features 4000 
+Enabling SG bit for the vap ath01 features 4000 
+Enabling TSO bit for the vap ath01 features 4000 
+Enabling LRO bit for the vap ath01 features 4000 
+VAP device ath01 created osifp: (de99c4c0) os_if: (dcfe8000)
+siwfreq
+Set freq vap 0 stop send + d7798000
+ol_scan_unregister_event_handler: Failed to unregister evhandler=bf9317a4 arg=d9920000
+
+Config commit is not allowed during booting
+osif_vap_acs_cancel: Scan in progress.. Cancelling it vap: 0xd7798000
+send_vdev_down_cmd_non_tlv for vap 0 (dec52000)
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8142 Comm:iwconfig :: PPID:6183 Comm:wlan <=< 
+Set freq vap 0 stop send -d7798000
+Set wait done --d7798000
+Set freq vap 1 stop send + dcfe8000
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8142 Comm:iwconfig :: PPID:6183 Comm:wlan <=< 
+Set freq vap 1 stop send -dcfe8000
+Switching to Tx Mode-1 Threshold 280
+Set wait done --dcfe8000
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8142 Comm:iwconfig :: PPID:6183 Comm:wlan <=< 
+[1727440306]collect installation event: soap server up, /tmp/ending SCAN START cmd
+ter-analytics/ra_data/installation/0060
+ol_scan_unregister_event_handler: Failed to unregister evhandler=bf9317a4 arg=d9920000
+
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xd7798000 
+Config commit is not allowed during booting
+send_vdev_down_cmd_non_tlv for vap 0 (dec52000)
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8167 Comm:iwpriv :: PPID:6183 Comm:wlan <=< 
+Sending SCAN START cmd
+vap-1(ath01):set SIOC80211NWID, 2 characters
+ 
+ DES SSID SET=on 
+vap-1(ath01):set SIOC80211NWID, 21 characters
+ 
+ DES SSID SET=NETGEAR_ORBI_hidden08 
+
+----------------------------------------
+Adding or updating following vendor ie
+Vendor IE info Ioctl Csu bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 1
+MD id     : 31 
+ID                              : dd
+Len (OUI+ Pcapdata) in Bytes    : 11
+OUI                             : 0su bfee 1 mu bfee 0 su bfer 0 mu bfer 1 impl bf 0 sounding dim 1
+0146c
+Private capibility_data         : 0407010000000000
+-----su bfee 1 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+-----------------------------------
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+su bfee 1 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+su bfee 1 mu bfee 0 su bfer 1 mu bfer 0 impl bf 0 sounding dim 1
+su bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 1
+su bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 1
+device ath01 entered promiscuous mode
+ ieee80211_ioctl_siwmode: imr.ifm_active=131712, new mode=3, valid=1 
+ DEVICE IS DOWN ifname=ath01
+ DEVICE IS DOWN ifname=ath01
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xdcfe8000 
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:2212 Comm:hostapd :: PPID:1 Comm:procd <=< 
+br0: port 3(ath01) entered forwarding state
+br0: port 3(ath01) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath01
+OK
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xdcfe8000 
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8318 Comm:iwpriv :: PPID:6183 Comm:wlan <=< 
+wlan_vap_create : enter. devhandle=0xda4804c0, opmode=IEEE80211_M_HOSTAP, flags=0x1
+send_vdev_create_cmd_non_tlv: ID = 2 Type = 1, Subtype = 0 VAP Addr = 46:94:ed:35:50:28:
+ieee80211_mbo_vattach:MBO Initialized 
+ieee80211_oce_vattach: OCE Initialized 
+wlan_vap_create : exit. devhandle=0xda4804c0, vap=0xdaef0000, opmode=IEEE80211_M_HOSTAP, flags=0x1.
+__ieee80211_smart_ant_init: Smart Antenna is not supported 
+Enabling TX checksum bit for the vap ath02 features 4000 
+Enabling SG bit for the vap ath02 features 4000 
+Enabling SG bit for the vap ath02 features 4000 
+Enabling TSO bit for the vap ath02 features 4000 
+Enabling LRO bit for the vap ath02 features 4000 
+VAP device ath02 created osifp: (d9b4d4c0) os_if: (daef0000)
+[uci2cfg] Start update config to cfg
+siwfreq
+Set freq vap 0 stop send + d7798000
+ol_scan_unregister_event_handler: Failed to unregister evhandler=bf9317a4 arg=d9920000
+
+osif_vap_acs_cancel: Scan in progress.. Cancelling it vap: 0xd7798000
+send_vdev_down_cmd_non_tlv for vap 0 (dec52000)
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8338 Comm:iwconfig :: PPID:6183 Comm:wlan <=< 
+Set freq vap 0 stop send -d7798000
+Set wait done --d7798000
+Set freq vap 1 stop send + dcfe8000
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8338 Comm:iwconfig :: PPID:6183 Comm:wlan <=< 
+Set freq vap 1 stop send -dcfe8000
+Set wait done --dcfe8000
+Set freq vap 2 stop send + daef0000
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8338 Comm:iwconfig :: PPID:6183 Comm:wlan <=< 
+Set freq vap 2 stop send -daef0000
+Set wait done --daef0000
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8338 Comm:iwconfig :: PPID:6183 Comm:wlan <=< 
+Sending SCAN START cmd
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xdcfe8000 
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8338 Comm:iwconfig :: PPID:6183 Comm:wlan <=< 
+ol_scan_unregister_event_handler: Failed to unregister evhandler=bf9317a4 arg=d9920000
+
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xd7798000 
+send_vdev_down_cmd_non_tlv for vap 0 (dec52000)
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8354 Comm:iwpriv :: PPID:6183 Comm:wlan <=< 
+Sending SCAN START cmd
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xdcfe8000 
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8354 Comm:iwpriv :: PPID:6183 Comm:wlan <=< 
+ol_scan_unregister_event_handler: Failed to unregister evhandler=bf9317a4 arg=d9920000
+
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xd7798000 
+send_vdev_down_cmd_non_tlv for vap 0 (dec52000)
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8372 Comm:iwpriv :: PPID:6183 Comm:wlan <=< 
+Sending SCAN START cmd
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xdcfe8000 
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8372 Comm:iwpriv :: PPID:6183 Comm:wlan <=< 
+WARNING: Fragmentation with HT mode NOT ALLOWED!!
+vap-2(ath02):set SIOC80211NWID, 2 characters
+ 
+ DES SSID SET=on 
+vap-2(ath02):set SIOC80211NWID, 13 characters
+ 
+ DES SSID SET=NETGEAR-Guest 
+
+----------------------------------------
+Adding or updating following vendor ie
+Vendor IE info Ioctl Csu bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 1
+MD id     : 31 
+ID                              : dd
+Len (OUI+ Pcapdata) in Bytes    : 11
+OUI                             : 0su bfee 1 mu bfee 0 su bfer 0 mu bfer 1 impl bf 0 sounding dim 1
+0146c
+Private capibility_data         : 0007010000000000
+-----su bfee 1 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+-----------------------------------
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+device ath02 entered promiscuous mode
+ ieee80211_ioctl_siwmode: imr.ifm_active=131712, new mode=3, valid=1 
+ DEVICE IS DOWN ifname=ath02
+ DEVICE IS DOWN ifname=ath02
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xdaef0000 
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:2212 Comm:hostapd :: PPID:1 Comm:procd <=< 
+br0: port 4(ath02) entered forwarding state
+br0: port 4(ath02) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath02
+OK
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xdaef0000 
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8558 Comm:iwpriv :: PPID:6183 Comm:wlan <=< 
+ol_scan_unregister_event_handler: Failed to unregister evhandler=bf9317a4 arg=d9920000
+
+osif_vap_stop: Scan in progress.. Cancelling it. vap: 0xd7798000 
+send_vdev_down_cmd_non_tlv for vap 0 (dec52000)
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8612 Comm:ifconfig :: PPID:6183 Comm:wlan <=< 
+Sending SCAN START cmd
+br0: port 2(ath0) entered disabled state
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xd7798000 
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8632 Comm:ifconfig :: PPID:6183 Comm:wlan <=< 
+br0: port 2(ath0) entered forwarding state
+br0: port 2(ath0) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath0
+ol_scan_unregister_event_handler: Failed to unregister evhandler=bf9317a4 arg=d9920000
+
+osif_vap_stop: Scan in progress.. Cancelling it. vap: 0xdcfe8000 
+send_vdev_down_cmd_non_tlv for vap 1 (dec52000)
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8670 Comm:ifconfig :: PPID:6183 Comm:wlan <=< 
+Sending SCAN START cmd
+br0: port 3(ath01) entered disabled state
+osif_vap_init: Scan in progress.. Cancelling it. vap: 0xdcfe8000 
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8681 Comm:ifconfig :: PPID:6183 Comm:wlan <=< 
+br0: port 3(ath01) entered forwarding state
+br0: port 3(ath01) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath01
+osif_vap_stop: Scan in progress.. Cancelling it. vap: 0xdaef0000 
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:8703 Comm:ifconfig :: PPID:6183 Comm:wlan <=< 
+br0: port 4(ath02) entered disabled state
+qcawifi: enable radio wifi1
+isCountryCodeValid: EEPROM regdomain 0x0
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x2) flags 0x2150
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x4) flags 0xa0
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x8) flags 0xc0
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x20) flags 0xd0
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x40) flags 0x150
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x800) flags 0x10080
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x2000) flags 0x20080
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x4000) flags 0x40080
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+Add VHT80 channel: 5210
+Add VHT80 channel: 5290
+Add VHT80 channel: 5530
+Add VHT80 channel: 5610
+DNI: Freq:5180  POWERLIMIT DISABLE === 
+DNI: Freq:5200  POWERLIMIT DISABLE === 
+DNI: Freq:5220  POWERLIMIT DISABLE === 
+DNI: Freq:5240  POWERLIMIT DISABLE === 
+DNI: Freq:5260  POWERLIMIT DISABLE === 
+DNI: Freq:5280  POWERLIMIT DISABLE === 
+DNI: Freq:5300  POWERLIMIT DISABLE === 
+DNI: Freq:5320  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x200000) flags 0x4000100
+ol_regdmn_init_channels: !avail mode 0x1f9001 (0x400000) flags 0x8000100
+freq=58 
+set TXBF_SND_PERIOD: value 100 wmi_status 0
+ Disconnect_timeout value entered:10 
+ reconfiguration_timeout value entered:60 
+wlan_vap_create : enter. devhandle=0xd9a404c0, opmode=IEEE80211_M_HOSTAP, flags=0x1
+send_vdev_create_cmd_non_tlv: ID = 0 Type = 1, Subtype = 0 VAP Addr = 38:94:ed:35:50:2a:
+ieee80211_mbo_vattach:MBO Initialized 
+ieee80211_oce_vattach: OCE Initialized 
+wlan_vap_create : exit. devhandle=0xd9a404c0, vap=0xd7bb8000, opmode=IEEE80211_M_HOSTAP, flags=0x1.
+__ieee80211_smart_ant_init: Smart Antenna is not supported 
+Enabling TX checksum bit for the vap ath1 features 4000 
+Enabling SG bit for the vap ath1 features 4000 
+Enabling SG bit for the vap ath1 features 4000 
+Enabling TSO bit for the vap ath1 features 4000 
+Enabling LRO bit for the vap ath1 features 4000 
+VAP device ath1 created osifp: (de99dcc0) os_if: (d7bb8000)
+siwfreq
+Set freq vap 0 stop send + d7bb8000
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:9138 Comm:iwconfig :: PPID:8868 Comm:wlan <=< 
+Set freq vap 0 stop send -d7bb8000
+Set wait done --d7bb8000
+ME Pool succesfully initialized vaddr - d75a0000 paddr - 0
+num_elems = 1424 buf_size - 64 pool_size = 102528
+Enable MCAST_TO_UCAST
+WARNING: Fragmentation with HT mode NOT ALLOWED!!
+vap-0(ath1):set SIOC80211NWID, 2 characters
+ 
+ DES SSID SET=on 
+vap-0(ath1):set SIOC80211NWID, 6 characters
+ 
+ DES SSID SET=ORBI10 
+
+----------------------------------------
+Adding or updating following vendor ie
+Vendor IE info Ioctl Csu bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 1
+MD id     : 31 
+ID                              : dd
+Len (OUI+ Pcapdata) in Bytes    : 11
+OUI                             : 0su bfee 1 mu bfee 0 su bfer 0 mu bfer 1 impl bf 0 sounding dim 1
+0146c
+Private capibility_data         : 0007010000000000
+-----su bfee 1 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+-----------------------------------
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+device ath1 entered promiscuous mode
+[wlan]===time:Fri Sep 27 12:31:50 UTC 2024   command:wlan retrycheck============== 
+[wlan] wlan is processing, skip retry check
+[uci2cfg] Start update config to cfg
+ ieee80211_ioctl_siwmode: imr.ifm_active=66176, new mode=3, valid=1 
+ DEVICE IS DOWN ifname=ath1
+ DEVICE IS DOWN ifname=ath1
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:2212 Comm:hostapd :: PPID:1 Comm:procd <=< 
+OL vap_start +
+VDEV START
+OL vap_start -
+ol_vdev_start_resp_ev for vap 0 (d9ae0000)
+send_wmm_update_cmd_non_tlv:
+Orbi : ieee80211_vap_start : 809 IEEE80211_STATE_EVENT_UP called >=> PID:0 Comm:swapper/3 :: PPID:1 Comm:procd <=< 
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+send_vdev_up_cmd_non_tlv for vap 0 (d9ae0000)
+__ieee80211_smart_ant_init: Smart Antenna is not supported 
+ol_ath_vap_set_param: Now supported MGMT RATE is 6000(kbps) and rate code: 0x3
+br0: port 5(ath1) entered forwarding state
+br0: port 5(ath1) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath1
+OK
+wlan_vap_create : enter. devhandle=0xd9a404c0, opmode=IEEE80211_M_HOSTAP, flags=0x1
+send_vdev_create_cmd_non_tlv: ID = 1 Type = 1, Subtype = 0 VAP Addr = 3e:94:ed:35:50:2a:
+ieee80211_mbo_vattach:MBO Initialized 
+ieee80211_oce_vattach: OCE Initialized 
+wlan_vap_create : exit. devhandle=0xd9a404c0, vap=0xd6c30000, opmode=IEEE80211_M_HOSTAP, flags=0x1.
+__ieee80211_smart_ant_init: Smart Antenna is not supported 
+Enabling TX checksum bit for the vap ath11 features 4000 
+Enabling SG bit for the vap ath11 features 4000 
+Enabling SG bit for the vap ath11 features 4000 
+Enabling TSO bit for the vap ath11 features 4000 
+Enabling LRO bit for the vap ath11 features 4000 
+VAP device ath11 created osifp: (de9ebcc0) os_if: (d6c30000)
+siwfreq
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:9500 Comm:iwpriv :: PPID:8868 Comm:wlan <=< 
+vap 0: drop SWBA event, since vap is not active  
+STOPPED EVENT for vap 0 (d9ae0000)
+send_vdev_down_cmd_non_tlv for vap 0 (d9ae0000)
+OL vap_start +
+VDEV START
+OL vap_start -
+ol_vdev_start_resp_ev for vap 0 (d9ae0000)
+Orbi : ieee80211_vap_start : 809 IEEE80211_STATE_EVENT_UP called >=> PID:9533 Comm:wlan :: PPID:9297 Comm:wlan <=< 
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+send_vdev_up_cmd_non_tlv for vap 0 (d9ae0000)
+__ieee80211_smart_ant_init: Smart Antenna is not supported 
+ol_ath_vap_set_param: Now supported MGMT RATE is 6000(kbps) and rate code: 0x3
+WARNING: Fragmentation with HT mode NOT ALLOWED!!
+vap-1(ath11):set SIOC80211NWID, 2 characters
+ 
+ DES SSID SET=on 
+vap-1(ath11):set SIOC80211NWID, 13 characters
+ 
+ DES SSID SET=NETGEAR-Guest 
+
+----------------------------------------
+Adding or updating following vendor ie
+Vendor IE info Ioctl Csu bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 1
+MD id     : 31 
+ID                              : dd
+Len (OUI+ Pcapdata) in Bytes    : 11
+OUI                             : 0su bfee 1 mu bfee 0 su bfer 0 mu bfer 1 impl bf 0 sounding dim 1
+0146c
+Private capibility_data         : 0007010000000000
+-----su bfee 1 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+-----------------------------------
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+device ath11 entered promiscuous mode
+ ieee80211_ioctl_siwmode: imr.ifm_active=18875008, new mode=3, valid=1 
+ DEVICE IS DOWN ifname=ath11
+ DEVICE IS DOWN ifname=ath11
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:2212 Comm:hostapd :: PPID:1 Comm:procd <=< 
+OL vap_start +
+VDEV START
+OL vap_start -
+ol_vdev_start_resp_ev for vap 1 (d9ae0000)
+send_wmm_update_cmd_non_tlv:
+Orbi : ieee80211_vap_start : 809 IEEE80211_STATE_EVENT_UP called >=> PID:2212 Comm:hostapd :: PPID:1 Comm:procd <=< 
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+send_vdev_up_cmd_non_tlv for vap 1 (d9ae0000)
+ol_ath_vap_set_param: Now supported MGMT RATE is 6000(kbps) and rate code: 0x3
+br0: port 6(ath11) entered forwarding state
+br0: port 6(ath11) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath11
+OK
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:9837 Comm:ifconfig :: PPID:8868 Comm:wlan <=< 
+STOPPED EVENT for vap 1 (d9ae0000)
+send_vdev_down_cmd_non_tlv for vap 1 (d9ae0000)
+br0: port 6(ath11) entered disabled state
+qcawifi: enable radio wifi2
+isCountryCodeValid: EEPROM regdomain 0x0
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x2) flags 0x2150
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5700  POWERLIMIT DISABLE === 
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x4) flags 0xa0
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x8) flags 0xc0
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x20) flags 0xd0
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x40) flags 0x150
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x800) flags 0x10080
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x2000) flags 0x20080
+ol_regdmn_init_channels: !avail mode 0x7f9001 (0x4000) flags 0x40080
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5700  POWERLIMIT DISABLE === 
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+DNI: Freq:5700  POWERLIMIT DISABLE === 
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5660  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+[wlan]===time:Fri Sep 27 12:31:52 UTC 2024   command:wlan retrycDNI: Freq:5640  POWERLIMIT DISABLE === 
+DNI: Freq:5680  POWERLIMIT DISABLE === 
+Add VHT80 channel: 5210
+Add VHT80 channel: 5290
+Add VHT80 channel: 5530
+Add VHT80 channel: 5610
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+Skipping VHT80 channel 5660
+Skipping VHT80 channel 5680
+Skipping VHT80 channel 5700
+DNI: Freq:5500  POWERLIMIT DISABLE === 
+DNI: Freq:5520  POWERLIMIT DISABLE === 
+DNI: Freq:5540  POWERLIMIT DISABLE === 
+DNI: Freq:5560  POWERLIMIT DISABLE === 
+DNI: Freq:5580  POWERLIMIT DISABLE === 
+DNI: Freq:5600  POWERLIMIT DISABLE === 
+DNI: Freq:5620  POWERLIMIT DISABLE === 
+DNI: Freq:5640  POWERLIMIT DISABLE === 
+freq=106 
+freq=122 
+set TXBF_SND_PERIOD: value 100 wmi_status 0
+heck============== 
+ Disconnect_timeout value entered:10 
+ reconfiguration_timeout value entered:60 
+[wlan] wlan is processing, skip retry check
+[wsplcd]WLAN interface ath2 is not ready
+wlan_vap_create : enter. devhandle=0xd8a804c0, opmode=IEEE80211_M_HOSTAP, flags=0x1
+send_vdev_create_cmd_non_tlv: ID = 0 Type = 1, Subtype = 0 VAP Addr = 38:94:ed:35:50:2b:
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 1 sounding dim 0
+ieee80211_mbo_vattach:MBO Initialized 
+ieee80211_oce_vattach: OCE Initialized 
+wlan_vap_create : exit. devhandle=0xd8a804c0, vap=0xd6c50000, opmode=IEEE80211_M_HOSTAP, flags=0x1.
+__ieee80211_smart_ant_init: Smart Antenna is not supported 
+Enabling TX checksum bit for the vap ath2 features 4000 
+Enabling SG bit for the vap ath2 features 4000 
+Enabling SG bit for the vap ath2 features 4000 
+Enabling TSO bit for the vap ath2 features 4000 
+Enabling LRO bit for the vap ath2 features 4000 
+VAP device ath2 created osifp: (de9cdcc0) os_if: (d6c50000)
+net.bridge.bridge-nf-call-custom = 1
+siwfreq
+Set freq vap 0 stop send + d6c50000
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:10132 Comm:iwconfig :: PPID:9970 Comm:wlan <=< 
+Set freq vap 0 stop send -d6c50000
+Set wait done --d6c50000
+vap-0(ath2):set SIOC80211NWID, 2 characters
+ 
+ DES SSID SET=on 
+vap-0(ath2):set SIOC80211NWID, 21 characters
+ 
+ DES SSID SET=NETGEAR_ORBI_hidden08 
+
+----------------------------------------
+Adding or updating following vendor ie
+Vendor IE info Ioctl Csu bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 3
+MD id     : 31 
+ID                              : dd
+Len (OUI+ Pcapdata) in Bytes    : 11
+OUI                             : 0su bfee 1 mu bfee 0 su bfer 0 mu bfer 1 impl bf 0 sounding dim 3
+0146c
+Private capibility_dasu bfee 1 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 3
+ta         : 0407010000000000
+----------------------------------------
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 3
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 3
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 3
+su bfee 1 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 3
+su bfee 1 mu bfee 0 su bfer 1 mu bfer 0 impl bf 0 sounding dim 3
+su bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 3
+su bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 3
+device ath2 entered promiscuous mode
+dd: can't open '/dev/mmcblk0p21': No such file or directory
+tar: /tmp/openvpn_keys_old.tar.gz: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+rm: can't remove '/tmp/openvpn_keys_old.tar.gz': No such file or directory
+ ieee80211_ioctl_siwmode: imr.ifm_active=66176, new mode=3, valid=1 
+./ca.crt
+./cert.info
+./cert_file_status
+./client.crt
+./client.key
+./dh1024.pem
+./push_routing_rule
+./server.crt
+./server.key
+ DEVICE IS DOWN ifname=ath2
+ DEVICE IS DOWN ifname=ath2
+quagga.init: Starting zebra ... Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:2212 Comm:hostapd :: PPID:1 Comm:procd <=< 
+OL vap_start +
+VDEV START
+OL vap_start -
+failed.
+quagga.init: Starting ripd ... ol_vdev_start_resp_ev for vap 0 (d8c86000)
+send_wmm_update_cmd_non_tlv:
+ol_if_dfs_configure: ETSI domain
+ol_ath_vap_set_param: Now supported MGMT RATE is 6000(kbps) and rate code: 0x3
+failed.
+quagga.init: Starting ripngd ... br0: port 7(ath2) entered forwarding state
+br0: port 7(ath2) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath2
+OK
+failed.
+quagga.init: Starting watchquagga ... done.
+DHCPv6 client is not running! Return
+Changing password for admin
+New password: Starting Firewall...
+Done!
+iface_mgr: ifacemgr_load_conf_file: 218: No STA VAPs are configured
+3e:94:ed:35:50:28 
+38:94:ed:35:50:2b 
+iface_mgr: ifacemgr_conn_to_global_wpa_s: 248: connected to global wpa_s
+iface_mgr: ifacemgr_display_updated_config: 560: Mode:3 timeout:60
+
+traffic_meter start : DHCPv6 client is not running! Return
+
+Retype password: Router mode, start trafficmeter.
+UBIFS: background thread "ubifs_bgt0_4" started, PID 10987
+quagga.init: found no ripngd process running.
+UBIFS: recovery needed
+UBIFS: recovery completed
+UBIFS: mounted UBI device 0, volume 4, name "vol_circle"
+UBIFS: LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+UBIFS: FS size: 30220288 bytes (28 MiB, 238 LEBs), journal size 1523712 bytes (1 MiB, 12 LEBs)
+UBIFS: reserved for root: 1427378 bytes (1393 KiB)
+UBIFS: media format: w4/r0 (latest is w4/r0), UUID 1CACA4EC-D0F5-41CA-B4A5-707FFB59E517, small LPT model
+Stopping Firewall...
+IPv6 Done!
+Circle PCC INIT
+Circle ECM PCC registrant REGISTERED
+Notice: Starting apid
+Starting Firewall...
+
+Done!
+the ipv6 wan type is disable
+$Shutting down igmpproxy: 
+
+New soap mechanism is on !
+The soap_agent demo is Running ...
+[soap_checkfw]curl_expect_time_hm=6:49
+
+076951:(60): add subscription CircleCfgInternal (0)
+076951:(60): Registering ntf
+076951:(60): (De)registering complete
+076951:(60): add subscription sealServiceStateUpdates (0)
+076951:(60): add subscription CircleCfgInternal (0)
+076952:(60): add subscription General (0)
+076952:(60): add subscription dalLogCfg (0)
+076952:(60): add subscription CircleCfgInternal (0)
+076952:(60): add subscription CircleDebug (0)
+077040:(62): add subscription CircleStatus (0)
+077040:(62): Registering ntf
+077040:(62): (De)registering complete
+077040:(62): add subscription CircleStatus (0)
+077041:(62): add subscription CircleDebug (0)
+077041:(62): add subscription dalLogCfg (0)
+077041:(62): add subscription RADebugLog (0)
+077041:(62): add subscription armorRaSwitch (0)
+077328:(66): add subscription ArmorStatus (0)
+077328:(66): Registering ntf
+077328:(66): (De)registering complete
+077328:(66): add subscription ArmorStatus (0)
+077329:(66): add subscription ArmorStatus (0)
+077329:(66): add subscription ArmorStatus (0)
+077330:(66): add subscription UpStatus (0)
+077330:(66): add subscription dalLogCfg (0)
+077338:(66): add subscription DALHNotifyCDIL (0)
+077339:(66): add subscription DALHNotifyCDUPDATE (0)
+077339:(66): add subscription UpStatus (0)
+077340:(66): add subscription RADebugLog (0)
+077340:(66): add subscription DALHNotifyNDN (0)
+077341:(66): add subscription DALHNotifyDTN (0)
+077343:(66): add subscription BSTCfg (0)
+077343:(66): add subscription UpStatus (0)
+077344:(66): add subscription UpStatus (0)
+077344:(66): add subscription CircleCfgInternal (0)
+077345:(66): add subscription UpStatus (0)
+077345:(66): add subscription CircleCfgInternal (0)
+077346:(66): add subscription CircleDebug (0)
+077346:(66): add subscription CircleDebug (0)
+077346:(66): add subscription CircleDebug (0)
+077360:(76): add subscription XagentCfg (0)
+077360:(76): Registering ntf
+077360:(76): (De)registering complete
+[wlan]=========time:Fri Sep 27 12:31:59 UTC 2024 wlan up end==================
+QCA post_lock_qcawifi
+Restart wsplcd after wlan up
+UBIFS: background thread "ubifs_bgt0_9" started, PID 11606
+[WSPLCD init] After updateconf lock check
+UBIFS: recovery needed
+UBIFS: recovery completed
+UBIFS: mounted UBI device 0, volume 9, name "vol_armor"
+UBIFS: LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+UBIFS: FS size: 40759296 bytes (38 MiB, 321 LEBs), journal size 2031616 bytes (1 MiB, 16 LEBs)
+UBIFS: reserved for root: 1925161 bytes (1880 KiB)
+UBIFS: media format: w4/r0 (latest is w4/r0), UUID BF0C3A5B-7131-4A3D-8ED4-40C2D68959A3, small LPT model
+!!! Takes long time--2 NOT to get hyt td s2 result, please check !!!
+ME Pool succesfully initialized vaddr - d5800000 paddr - 0
+num_elems = 1424 buf_size - 64 pool_size = 102528
+Enable MCAST_TO_UCAST
+Configuration file does not exist. Please check if path is configured correctly.
+guster accel_cb registered; mark shift 20
+BD agent start
+restart the daemon telnetenable for Thin client !!!
+The telnetenable is running ...
+[uci2cfg] Start update config to cfg
+send_vdev_down_cmd_non_tlv for vap 0 (dec52000)
+OL vap_start +
+VDEV START
+OL vap_start -
+ol_ath_vap_set_param: Now supported MGMT RATE is 1000(kbps) and rate code: 0x43
+OL vap_start +
+VDEV START
+OL vap_start -
+ol_ath_vap_set_param: Now supported MGMT RATE is 1000(kbps) and rate code: 0x43
+ol_vdev_start_resp_ev for vap 0 (dec52000)
+send_wmm_update_cmd_non_tlv:
+Orbi : ieee80211_vap_start : 809 IEEE80211_STATE_EVENT_UP called >=> PID:12071 Comm:sh :: PPID:11571 Comm:sh <=< 
+su bfee 0 mu bfee 0 su bfer 0 mu bfer 0 impl bf 0 sounding dim 1
+send_vdev_up_cmd_non_tlv for vap 0 (dec52000)
+__ieee80211_smart_ant_init: Smart Antenna is not supported 
+ol_vdev_start_resp_ev for vap 1 (dec52000)
+send_wmm_update_cmd_non_tlv:
+Orbi : ieee80211_vap_start : 809 IEEE80211_STATE_EVENT_UP called >=> PID:12071 Comm:sh :: PPID:11571 Comm:sh <=< 
+su bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 1
+send_vdev_up_cmd_non_tlv for vap 1 (dec52000)
+net.ipv4.neigh.default.gc_reap_limit = 100
+restart klogd process
+[Orbi]***boot done***
+[wifi-listener] Starting daemon
+[ arlo ] arlo list not found
+control-firmware will be Running when Internet status is UP !!!
+CFU will auto check during 00:00~24:00 local time zone (a random number of sec between 0 to of 86400)
+[FW UPGRADE][2024-09-27 12:32:04]:[CFU auto check]expect_time == 70763 seconds
+
+[CFU auto check]count time:0
+
+whc (repacd): starting WHC auto-configuration
+whc (repacd): Managed network: 0
+whc (repacd): Device type: CAP
+When run by root:
+    smbpasswd [options] [username]
+otherwise:
+    smbpasswd [options]
+
+options:
+  -L                   local mode (must be first option)
+  -h                   print this usage message
+  -s                   use stdin for password prompt
+  -c smb.conf file     Use the given path to the smb.conf file
+  -D LEVEL             debug level
+  -r MACHINE           remote machine
+  -U USER              remote username (e.g. SAM/user)
+extra options when run by root or in local mode:
+  -a                   add user
+  -d                   disable user
+  -e                   enable user
+  -i                   interdomain trust account
+  -m                   machine trust account
+  -n                   set no password
+  -W                   use stdin ldap admin password
+  -w PASSWORD          ldap admin password
+  -x                   delete user
+  -R ORDER             name resolve order
+bdbrokerd is up, call ash start
+!!! Takes long time--7 NOT to get hyt td s2 result, please check !!!
+085802:(78): add subscription XagentCfg (0)
+085802:(78): Registering ntf
+085802:(78): (De)registering complete
+085803:(78): add subscription ArmorCfg (0)
+085803:(78): add subscription ArmorCfg (0)
+085804:(78): add subscription ArmorStatus (0)
+085804:(78): add subscription ArmorCfg (0)
+085804:(78): add subscription DeviceIdList (0)
+085805:(78): add subscription Dilsignature (0)
+085805:(78): add subscription Dilsignature (0)
+085805:(78): add subscription dalLogCfg (0)
+085806:(78): add subscription General (0)
+Starting Firewall...
+hyd: starting daemon
+Done!
+When run by root:
+    smbpasswd [options] [username]
+otherwise:
+    smbpasswd [options]
+
+options:
+  -L                   local mode (must be first option)
+  -h                   print this usage message
+  -s                   use stdin for password prompt
+  -c smb.conf file     Use the given path to the smb.conf file
+  -D LEVEL             debug level
+  -r MACHINE           remote machine
+  -U USER              remote username (e.g. SAM/user)
+extra options when run by root or in local mode:
+  -a                   add user
+  -d                   disable user
+  -e                   enable user
+  -i                   interdomain trust account
+  -m                   machine trust account
+  -n                   set no password
+  -W                   use stdin ldap admin password
+  -w PASSWORD          ldap admin password
+  -x                   delete user
+  -R ORDER             name resolve order
+[wlan]===time:Fri Sep 27 12:32:08 UTC 2024   command:wlan retrycheck============== 
+[uci2cfg] Start update config to cfg
+[ath0] Band steering events being sent to PID:13514
+[ath01] Band steering events being sent to PID:13514
+[ath1] Band steering events being sent to PID:13514
+[ath2] Band steering events being sent to PID:13514
+[ath0] Band steering events being sent to PID:13514
+[ath1] Band steering events being sent to PID:13514
+send_set_bridge_mac_addr_cmd_non_tlv: set bridge_addr 38:94:ed:35:50:28 
+send_set_bridge_mac_addr_cmd_non_tlv: set bridge_addr 38:94:ed:35:50:28 
+send_set_bridge_mac_addr_cmd_non_tlv: set bridge_addr 38:94:ed:35:50:28 
+send_set_bridge_mac_addr_cmd_non_tlv: set bridge_addr 38:94:ed:35:50:28 
+[wlan]===time:Fri Sep 27 12:32:12 UTC 2024   command:wlan retrycheck============== 
+wsplcd: starting daemon
+Restart hyd after wlan up
+[libstorage] Loop checking wlan LOCK
+[libstorage] Create wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Create wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Create wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Create wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Create wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Create wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Create wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Loop checking wlan LOCK
+[libstorage] Create wlan LOCK
+[WSPLCD] Start update config to datalib
+Saving Data... from parentid: 15142, parent process: (wifison.sh),presentid: 15626,present: (config)
+ 
+Done!
+
+[wlan]===time:Fri Sep 27 12:32:17 UTC 2024   command:wlan retrycheck============== 
+[WSPLCD] Start update config to datalib
+!!! Takes long time--12 NOT to get hyt td s2 result, please check !!!
+repacd: checking backhaul_ap interface
+--> network:0 - iface:ath0 - disabled:0 - mode:ap - device:wifi0 - backhaul_ap:0
+repacd: checking backhaul_ap interface
+--> network:0 - iface:ath01 - disabled:0 - mode:ap - device:wifi0 - baOrbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:17425 Comm:ifconfig :: PPID:12644 Comm:S98repacd <=< 
+ckhaul_ap:1
+repacd: checking backhaul_ap interface
+--> networkSTOPPED EVENT for vap 0 (d8c86000)
+:0 - iface:ath1 - disabled:0 - mode:ap - device:wifi1 - backhaulsend_vdev_down_cmd_non_tlv for vap 0 (d8c86000)
+_ap:0
+repacd: checking backhaul_ap interface
+--> network:0 - iface:ath02 - disabled:0 - mode:ap - device:wifi0 - backhaul_ap:0
+repacd: checking backhaul_ap interface
+--> network:0 - iface:br0: port 7(ath2) entered disabled state
+ath11 - disabled:0 - mode:ap - device:wifi1 - backhaul_ap:0
+repacd: checking backhaul_ap interface
+--> network:0 - iface:ath2 Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:17431 Comm:ifconfig :: PPID:12644 Comm:S98repacd <=< 
+- disabled:0 - mode:ap - device:wifi2 - backhaul_ap:1
+STOPPED EVENT for vap 1 (dec52000)
+send_vdev_down_cmd_non_tlv for vap 1 (dec52000)
+br0: port 3(ath01) entered disabled state
+Otherband BSSID 38:94:ed:35:50:2b
+Otherband BSSID 42:94:ed:35:50:28
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:17498 Comm:ifconfig :: PPID:12644 Comm:S98repacd <=< 
+OL vap_start +
+VDEV START
+OL vap_start -
+ol_vdev_start_resp_ev for vap 0 (d8c86000)
+send_wmm_update_cmd_non_tlv:
+ol_if_dfs_configure: ETSI domain
+ol_ath_vap_set_param: Now supported MGMT RATE is 6000(kbps) and rate code: 0x3
+br0: port 7(ath2) entered forwarding state
+br0: port 7(ath2) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath2
+Orbi : osif_vap_init : 6125 wlan_mlme_stop_bss called with flag Zero :
+Orbi : ieee80211_vap_stop : 826 IEEE80211_STATE_EVENT_DOWN called >=> PID:17514 Comm:ifconfig :: PPID:12644 Comm:S98repacd <=< 
+[wlan]===time:Fri Sep 27 12:32:20 UTC 2024   command:wlan retrycheck============== 
+OL vap_start +
+VDEV START
+OL vap_start -
+ol_vdev_start_resp_ev for vap 1 (dec52000)
+send_wmm_update_cmd_non_tlv:
+Orbi : ieee80211_vap_start : 809 IEEE80211_STATE_EVENT_UP called >=> PID:17514 Comm:ifconfig :: PPID:12644 Comm:S98repacd <=< 
+su bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 1
+send_vdev_up_cmd_non_tlv for vap 1 (dec52000)
+ol_ath_vap_set_param: Now supported MGMT RATE is 1000(kbps) and rate code: 0x43
+br0: port 3(ath01) entered forwarding state
+br0: port 3(ath01) entered forwarding state
+8021q: adding VLAN 0 to HW filter on device ath01
+ath0      IEEE 802.11ng  ESSID:"ORBI10"  
+ath01     IEEE 802.11ng  ESSID:"NETGEAR_ORBI_hidden08"  
+[WSPLCD] Start update config to datalib
+ath1      IEEE 802.11ac  ESSID:"ORBI10"  
+ath02     IEEE 802.11b  ESSID:"NETGEAR-Guest"  
+ath11     IEEE 802.11ac  ESSID:"NETGEAR-Guest"  
+ath2      IEEE 802.11ac  ESSID:"NETGEAR_ORBI_hidden08"  
+The sshenable is running ...
+099098:(89): add subscription DALHConfig (0)
+099098:(89): Registering ntf
+099098:(89): (De)registering complete
+099099:(89): add subscription DilFWupgrade (0)
+099099:(89): add subscription dalLogCfg (0)
+Saving Data... from parentid: 17586, parent process: (S99XAgent),presentid: 17657,present: (nvram)
+ 
+Done!
+
+hyd: starting daemon
+[wlan]=========time:Fri Sep 27 12:32:22 UTC 2024 wlan post up ==================
+[wlan]========= reload netscan ==================
+Thermal Init Set ALL wifi 0
+net.bridge.bridge-nf-call-custom = 1
+Thermal Init Set ALL wifi 0
+Thermal Init Set ALL wifi 0
+101672:(107): add subscription XagentCtrl (0)
+101672:(107): Registering ntf
+101672:(107): (De)registering complete
+101775:(112): add subscription BSTCfg (0)
+101775:(112): Registering ntf
+101776:(112): (De)registering complete
+101802:(114): add subscription General (0)
+101802:(114): Registering ntf
+101803:(114): (De)registering complete
+101803:(114): add subscription dalLogCfg (0)
+[wlan]===time:Fri Sep 27 12:32:23 UTC 2024   command:wlan retrycheck============== 
+[WSPLCD] Start update config to datalib
+Starting Firewall...
+!!! Takes long time--2 NOT to get hyt td s2 result, please check !!!
+Done!
+[wlan]===time:Fri Sep 27 12:32:26 UTC 2024   command:wlan retrycheck============== 
+[WSPLCD] Start update config to datalib
+ath0      IEEE 802.11ng  ESSID:"ORBI10"  
+ath01     IEEE 802.11ng  ESSID:"NETGEAR_ORBI_hidden08"  
+ath1      IEEE 802.11ac  ESSID:"ORBI10"  
+ath02     IEEE 802.11b  ESSID:"NETGEAR-Guest"  
+ath11     IEEE 802.11ac  ESSID:"NETGEAR-Guest"  
+ath2      IEEE 802.11ac  ESSID:"NETGEAR_ORBI_hidden08"  
+time zone index is : 0
+Run NTP Client with setting: pri:time-g.netgear.com sec:time-h.netgear.com
+[wlan]===time:Fri Sep 27 12:32:29 UTC 2024   command:wlan retrycheck============== 
+hyd: starting daemon
+Set backhaul AP OtherBand BSSID
+Otherband BSSID 38:94:ed:35:50:2b
+Otherband BSSID 42:94:ed:35:50:28
+hyd: boot daemon
+************vap on****************
+[1727440350]collect installation event: wifi on, /tmp/router-analytics/ra_data/installation/0061
+Saving Data... from parentid: 1, parent process: (procd),presentid: 6405,present: (install_agent)
+ 
+Done!
+
+!!! Takes long time--7 NOT to get hyt td s2 result, please check !!!
+ath0      IEEE 802.11ng  ESSID:"ORBI10"  
+ath01     IEEE 802.11ng  ESSID:"NETGEAR_ORBI_hidden08"  
+ath1      IEEE 802.11ac  ESSID:"ORBI10"  
+ath02     IEEE 802.11b  ESSID:"NETGEAR-Guest"  
+ath11     IEEE 802.11ac  ESSID:"NETGEAR-Guest"  
+ath2      IEEE 802.11ac  ESSID:"NETGEAR_ORBI_hidden08"  
+hyd: starting daemon
+****************Start of ping-netgear********************
+[ath0] Band steering events being sent to PID:21814
+[ath01] Band steering events being sent to PID:21814
+[ath1] Band steering events being sent to PID:21814
+[ath2] Band steering events being sent to PID:21814
+[ath0] Band steering events being sent to PID:21814
+[ath1] Band steering events being sent to PID:21814
+send_set_bridge_mac_addr_cmd_non_tlv: set bridge_addr 38:94:ed:35:50:28 
+send_set_bridge_mac_addr_cmd_non_tlv: set bridge_addr 38:94:ed:35:50:28 
+send_set_bridge_mac_addr_cmd_non_tlv: set bridge_addr 38:94:ed:35:50:28 
+send_set_bridge_mac_addr_cmd_non_tlv: set bridge_addr 38:94:ed:35:50:28 
+!!! Takes long time--12 NOT to get hyt td s2 result, please check !!!
+Restart tail -F /tmp/cloud_backend_log process!!!
+[Daily Check FW]count time:0
+
+cac_timeout cac expired, chan 5540 curr time 4294828
+su bfee 1 mu bfee 0 su bfer 1 mu bfer 1 impl bf 0 sounding dim 3
+send_vdev_up_cmd_non_tlv for vap 0 (d8c86000)
+__ieee80211_smart_ant_init: Smart Antenna is not supported 

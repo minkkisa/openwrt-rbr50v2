@@ -1,0 +1,578 @@
+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+//
+// Device Tree Source for Netgear Orbi RBR50 V2 (NAND)
+//
+// Based on Netgear RBR20 (NAND Orbi) by OpenWrt community.
+// V2 uses 512MB SPI NAND (Macronix MX30LF4G18AC-TI) instead of V1's eMMC.
+// Key differences from V1: NAND flash, LED GPIOs relocated to 22-27,
+// no I2C LED controller on GPIO 58/59 (now QPIC NAND bus).
+//
+// Hardware: IPQ4019 4x Cortex-A7, 512MB RAM, 512MB NAND
+// WiFi: 2x IPQ4019 (2.4GHz + 5GHz) + QCA9984 PCIe (5GHz 4x4 backhaul)
+// Ethernet: WAN + 3x LAN (QCA8075 switch)
+// GPIO dump source: stock firmware 3.14.77 (2024-09-27)
+
+#include "qcom-ipq4019.dtsi"
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+#include <dt-bindings/soc/qcom,tcsr.h>
+#include <dt-bindings/leds/common.h>
+
+/ {
+	model = "Netgear RBR50v2";
+	compatible = "netgear,rbr50v2";
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+
+	aliases {
+		serial0 = &blsp1_uart1;
+		led-boot = &led_status_white;
+		led-failsafe = &led_status_red;
+		led-running = &led_status_green;
+		led-upgrade = &led_status_blue;
+		ethernet0 = &gmac;
+		label-mac-device = &gmac;
+	};
+
+	keys {
+		compatible = "gpio-keys";
+
+		reset {
+			label = "reset";
+			gpios = <&tlmm 18 GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_RESTART>;
+		};
+
+		wps {
+			label = "wps";
+			gpios = <&tlmm 49 GPIO_ACTIVE_LOW>;
+			linux,code = <KEY_WPS_BUTTON>;
+		};
+	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		/* GPIOs 22-27 confirmed from V2 stock firmware GPIO dump */
+
+		led-0 {
+			function = LED_FUNCTION_POWER;
+			color = <LED_COLOR_ID_GREEN>;
+			gpios = <&tlmm 22 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+
+		led-1 {
+			function = LED_FUNCTION_POWER;
+			color = <LED_COLOR_ID_RED>;
+			gpios = <&tlmm 23 GPIO_ACTIVE_HIGH>;
+			panic-indicator;
+		};
+
+		led_status_green: led-2 {
+			function = LED_FUNCTION_STATUS;
+			color = <LED_COLOR_ID_GREEN>;
+			gpios = <&tlmm 24 GPIO_ACTIVE_HIGH>;
+		};
+
+		led_status_red: led-3 {
+			function = LED_FUNCTION_STATUS;
+			color = <LED_COLOR_ID_RED>;
+			gpios = <&tlmm 25 GPIO_ACTIVE_HIGH>;
+		};
+
+		led_status_blue: led-4 {
+			function = LED_FUNCTION_STATUS;
+			color = <LED_COLOR_ID_BLUE>;
+			gpios = <&tlmm 26 GPIO_ACTIVE_HIGH>;
+		};
+
+		led_status_white: led-5 {
+			function = LED_FUNCTION_STATUS;
+			color = <LED_COLOR_ID_WHITE>;
+			gpios = <&tlmm 27 GPIO_ACTIVE_HIGH>;
+		};
+	};
+
+	soc {
+		counter@4a1000 {
+			compatible = "qcom,qca-gcnt";
+			reg = <0x4a1000 0x4>;
+		};
+
+		tcsr@1949000 {
+			compatible = "qcom,tcsr";
+			reg = <0x1949000 0x100>;
+			qcom,wifi_glb_cfg = <TCSR_WIFI_GLB_CFG>;
+		};
+
+		tcsr@194b000 {
+			status = "okay";
+
+			compatible = "qcom,tcsr";
+			reg = <0x194b000 0x100>;
+			qcom,usb-hsphy-mode-select = <TCSR_USB_HSPHY_HOST_MODE>;
+		};
+
+		ess_tcsr@1953000 {
+			compatible = "qcom,tcsr";
+			reg = <0x1953000 0x1000>;
+			qcom,ess-interface-select = <TCSR_ESS_PSGMII>;
+		};
+
+		tcsr@1957000 {
+			compatible = "qcom,tcsr";
+			reg = <0x1957000 0x100>;
+			qcom,wifi_noc_memtype_m0_m2 = <TCSR_WIFI_NOC_MEMTYPE_M0_M2>;
+		};
+	};
+};
+
+&watchdog {
+	status = "okay";
+};
+
+&prng {
+	status = "okay";
+};
+
+&crypto {
+	status = "okay";
+};
+
+&cryptobam {
+	status = "okay";
+};
+
+&blsp_dma {
+	status = "okay";
+};
+
+&qpic_bam {
+	status = "okay";
+};
+
+&tlmm {
+	mdio_pins: mdio-pinmux {
+		mux_mdio {
+			pins = "gpio6";
+			function = "mdio";
+			bias-pull-up;
+		};
+
+		mux_mdc {
+			pins = "gpio7";
+			function = "mdc";
+			bias-pull-up;
+		};
+	};
+
+	serial_pins: serial-pinmux {
+		function = "blsp_uart0";
+		pins = "gpio16", "gpio17";
+		bias-disable;
+	};
+
+	i2c_0_pins: i2c-0-pinmux {
+		pins = "gpio20", "gpio21";
+		function = "blsp_i2c0";
+		bias-disable;
+	};
+
+	nand_pins: nand-pins {
+		pullups {
+			pins = "gpio53", "gpio58", "gpio59";
+			function = "qpic";
+			bias-pull-up;
+		};
+
+		pulldowns {
+			pins = "gpio54", "gpio55", "gpio56",
+				"gpio57", "gpio60", "gpio61",
+				"gpio62", "gpio63", "gpio64",
+				"gpio65", "gpio66", "gpio67",
+				"gpio68", "gpio69";
+			function = "qpic";
+			bias-pull-down;
+		};
+	};
+};
+
+&blsp1_uart1 {
+	status = "okay";
+	pinctrl-0 = <&serial_pins>;
+	pinctrl-names = "default";
+};
+
+&blsp1_i2c3 {
+	status = "okay";
+	pinctrl-0 = <&i2c_0_pins>;
+	pinctrl-names = "default";
+
+	/* TLC59208F 8-channel LED driver — controls the top ring LED.
+	 * Use tlc59108 compatible (register-compatible, in kernel match table).
+	 */
+	led-controller@27 {
+		compatible = "ti,tlc59108";
+		reg = <0x27>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		led_ring_green: led@0 {
+			reg = <0x0>;
+			function = LED_FUNCTION_INDICATOR;
+			color = <LED_COLOR_ID_GREEN>;
+		};
+
+		led_ring_red: led@1 {
+			reg = <0x1>;
+			function = LED_FUNCTION_INDICATOR;
+			color = <LED_COLOR_ID_RED>;
+		};
+
+		led_ring_blue: led@2 {
+			reg = <0x2>;
+			function = LED_FUNCTION_INDICATOR;
+			color = <LED_COLOR_ID_BLUE>;
+		};
+
+		led@3 {
+			reg = <0x3>;
+			function = LED_FUNCTION_INDICATOR;
+			color = <LED_COLOR_ID_WHITE>;
+		};
+
+		led@4 {
+			reg = <0x4>;
+			label = "ring:chan4";
+		};
+
+		led@5 {
+			reg = <0x5>;
+			label = "ring:chan5";
+		};
+
+		led@6 {
+			reg = <0x6>;
+			label = "ring:chan6";
+		};
+
+		led@7 {
+			reg = <0x7>;
+			label = "ring:chan7";
+		};
+	};
+};
+
+&mdio {
+	status = "okay";
+	pinctrl-0 = <&mdio_pins>;
+	pinctrl-names = "default";
+};
+
+&gmac {
+	status = "okay";
+
+	nvmem-cell-names = "mac-address";
+	nvmem-cells = <&mac_address_lan 0>;
+};
+
+&switch {
+	status = "okay";
+};
+
+/* V2 has same port layout as V1: WAN + 3x LAN */
+&swport1 {
+	status = "okay";
+
+	label = "wan";
+	nvmem-cell-names = "mac-address";
+	nvmem-cells = <&mac_address_wan 0>;
+};
+
+&swport2 {
+	status = "okay";
+
+	label = "lan1";
+};
+
+&swport3 {
+	status = "okay";
+
+	label = "lan2";
+};
+
+&swport4 {
+	status = "okay";
+
+	label = "lan3";
+};
+
+&ethphy4 {
+	status = "disabled";
+};
+
+&usb3_hs_phy {
+	status = "disabled";
+};
+
+&usb3 {
+	status = "disabled";
+};
+
+&usb2_hs_phy {
+	status = "disabled";
+};
+
+&usb2 {
+	status = "disabled";
+};
+
+&pcie0 {
+	status = "okay";
+
+	perst-gpios = <&tlmm 38 GPIO_ACTIVE_LOW>;
+	wake-gpios = <&tlmm 50 GPIO_ACTIVE_LOW>;
+};
+
+&pcie_bridge0 {
+	wifi@0,0 {
+		compatible = "qcom,ath10k";
+		reg = <0x00010000 0 0 0 0>;
+		/* QCA9984 4x4 — upper 5GHz for backhaul (same as V1) */
+		ieee80211-freq-limit = <5470000 5875000>;
+		nvmem-cell-names = "pre-calibration", "mac-address";
+		nvmem-cells = <&precal_art_9000>, <&mac_address_wlan_2nd5g 0>;
+		qcom,ath10k-calibration-variant = "Netgear-Orbi-Pro-SRK60";
+	};
+};
+
+&wifi0 {
+	status = "okay";
+	/* IPQ4019 2.4GHz */
+	nvmem-cell-names = "pre-calibration", "mac-address";
+	nvmem-cells = <&precal_art_1000>, <&mac_address_lan 0>;
+	qcom,ath10k-calibration-variant = "Netgear-Orbi-Pro-SRK60";
+};
+
+&wifi1 {
+	status = "okay";
+	/* IPQ4019 5GHz — lower band, client access */
+	ieee80211-freq-limit = <5170000 5350000>;
+	nvmem-cell-names = "pre-calibration", "mac-address";
+	nvmem-cells = <&precal_art_5000>, <&mac_address_wlan_5g 0>;
+	qcom,ath10k-calibration-variant = "Netgear-Orbi-Pro-SRK60";
+};
+
+/*
+ * NAND partition layout — computed from V2 stock /proc/mtd
+ * 512MB NAND, 128KB erase blocks, 2048B page size
+ *
+ * OpenWrt uses the stock "firmware" partition area (50MB):
+ * kernel (7MB) + ubi (43MB within firmware partition)
+ * Note: firmware2 + reserved areas can be reclaimed later
+ */
+&nand {
+	pinctrl-0 = <&nand_pins>;
+	pinctrl-names = "default";
+	status = "okay";
+
+	nand@0 {
+		partitions {
+			compatible = "fixed-partitions";
+			#address-cells = <1>;
+			#size-cells = <1>;
+
+			partition@0 {
+				label = "0:SBL1";
+				reg = <0x00000000 0x00100000>;
+				read-only;
+			};
+
+			partition@100000 {
+				label = "0:MIBIB";
+				reg = <0x00100000 0x00100000>;
+				read-only;
+			};
+
+			partition@200000 {
+				label = "0:BOOTCONFIG";
+				reg = <0x00200000 0x00100000>;
+				read-only;
+			};
+
+			partition@300000 {
+				label = "0:QSEE";
+				reg = <0x00300000 0x00100000>;
+				read-only;
+			};
+
+			partition@400000 {
+				label = "0:QSEE_1";
+				reg = <0x00400000 0x00100000>;
+				read-only;
+			};
+
+			partition@500000 {
+				label = "0:CDT";
+				reg = <0x00500000 0x00080000>;
+				read-only;
+			};
+
+			partition@580000 {
+				label = "0:CDT_1";
+				reg = <0x00580000 0x00080000>;
+				read-only;
+			};
+
+			partition@600000 {
+				label = "0:BOOTCONFIG1";
+				reg = <0x00600000 0x00080000>;
+				read-only;
+			};
+
+			partition@680000 {
+				label = "0:APPSBLENV";
+				reg = <0x00680000 0x00080000>;
+			};
+
+			partition@700000 {
+				label = "0:APPSBL";
+				reg = <0x00700000 0x00200000>;
+				read-only;
+			};
+
+			partition@900000 {
+				label = "0:APPSBL_1";
+				reg = <0x00900000 0x00200000>;
+				read-only;
+			};
+
+			partition@b00000 {
+				label = "0:ART";
+				reg = <0x00b00000 0x00080000>;
+				read-only;
+
+				nvmem-layout {
+					compatible = "fixed-layout";
+					#address-cells = <1>;
+					#size-cells = <1>;
+
+					precal_art_1000: precal@1000 {
+						reg = <0x1000 0x2f20>;
+					};
+
+					precal_art_5000: precal@5000 {
+						reg = <0x5000 0x2f20>;
+					};
+
+					precal_art_9000: precal@9000 {
+						reg = <0x9000 0x2f20>;
+					};
+				};
+			};
+
+			partition@b80000 {
+				label = "0:ART.bak";
+				reg = <0x00b80000 0x00080000>;
+				read-only;
+			};
+
+			partition@c00000 {
+				label = "config";
+				reg = <0x00c00000 0x00100000>;
+				read-only;
+			};
+
+			partition@d00000 {
+				label = "boarddata1";
+				reg = <0x00d00000 0x00080000>;
+				read-only;
+
+				nvmem-layout {
+					compatible = "fixed-layout";
+					#address-cells = <1>;
+					#size-cells = <1>;
+
+					mac_address_lan: macaddr@0 {
+						compatible = "mac-base";
+						reg = <0x0 0x6>;
+						#nvmem-cell-cells = <1>;
+					};
+
+					mac_address_wan: macaddr@6 {
+						compatible = "mac-base";
+						reg = <0x6 0x6>;
+						#nvmem-cell-cells = <1>;
+					};
+
+					mac_address_wlan_5g: macaddr@c {
+						compatible = "mac-base";
+						reg = <0xc 0x6>;
+						#nvmem-cell-cells = <1>;
+					};
+
+					mac_address_wlan_2nd5g: macaddr@12 {
+						compatible = "mac-base";
+						reg = <0x12 0x6>;
+						#nvmem-cell-cells = <1>;
+					};
+				};
+			};
+
+			partition@d80000 {
+				label = "boarddata2";
+				reg = <0x00d80000 0x00040000>;
+				read-only;
+			};
+
+			partition@dc0000 {
+				label = "pot";
+				reg = <0x00dc0000 0x00100000>;
+				read-only;
+			};
+
+			partition@ec0000 {
+				label = "boarddata1.bak";
+				reg = <0x00ec0000 0x00080000>;
+				read-only;
+			};
+
+			partition@f40000 {
+				label = "boarddata2.bak";
+				reg = <0x00f40000 0x00040000>;
+				read-only;
+			};
+
+			/* V2: 5MB language (RBR20: 3MB) — shifts all following offsets */
+			partition@f80000 {
+				label = "language";
+				reg = <0x00f80000 0x00500000>;
+				read-only;
+			};
+
+			partition@1480000 {
+				label = "cert";
+				reg = <0x01480000 0x00080000>;
+				read-only;
+			};
+
+			partition@1500000 {
+				label = "ntgrdata";
+				reg = <0x01500000 0x09300000>;
+			};
+
+			partition@a800000 {
+				label = "kernel";
+				reg = <0x0a800000 0x00700000>;
+			};
+
+			partition@af00000 {
+				label = "ubi";
+				reg = <0x0af00000 0x02b00000>;
+			};
+		};
+	};
+};

@@ -1,0 +1,25 @@
+# ============================================================
+# OpenWrt image build definition for Netgear RBR50 V2
+# Add this after the netgear_rbs50 definition in:
+#   target/linux/ipq40xx/image/generic.mk
+# ============================================================
+
+# V2 uses NAND (like RBX20 family), not eMMC (like RBX50 family)
+# Based on netgear_rbx20 template with QCA9984 PCIe WiFi
+
+define Device/netgear_rbr50v2
+	$(call Device/DniImage)
+	SOC := qcom-ipq4019
+	DEVICE_VENDOR := NETGEAR
+	DEVICE_MODEL := RBR50
+	DEVICE_VARIANT := v2
+	KERNEL_SIZE := 7340032
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	UBINIZE_OPTS := -E 5
+	NETGEAR_BOARD_ID := RBR50
+	NETGEAR_HW_ID := 29765913+0+512+512+2x2+2x2+4x4
+	IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+	DEVICE_PACKAGES := ath10k-firmware-qca9984-ct kmod-leds-tlc591xx
+endef
+TARGET_DEVICES += netgear_rbr50v2

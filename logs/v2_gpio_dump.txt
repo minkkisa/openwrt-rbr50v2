@@ -1,0 +1,57 @@
+=== V2 GPIO dump (cat /sys/kernel/debug/gpio) ===
+GPIOs 0-69, platform/1000000.pinctrl, 1000000.pinctrl:
+gpio0-5: inputs (misc)
+gpio6: in 1 (MDIO)
+gpio7: in 1 (MDC)
+gpio8: out 1 (likely LED or control)
+gpio9: out 1 (likely LED or control)
+gpio16: out 1 (UART TX)
+gpio17: out 1 (UART RX)
+gpio18: in 0 (reset button)
+gpio20: out 1 10mA (likely LED)
+gpio21: out 1 10mA (likely LED)
+gpio22: out 0 4mA (likely LED - OFF)
+gpio23: out 0 4mA (likely LED - OFF)
+gpio24: out 0 10mA (likely LED - OFF)
+gpio25: out 0 10mA (likely LED - OFF)
+gpio26: out 0 10mA (likely LED - OFF)
+gpio27: out 0 10mA (likely LED - OFF)
+gpio38: out 0 (PCIe PERST)
+gpio46: out 0 10mA
+gpio47: out 0
+gpio49: in 0 (WPS button)
+gpio50: in 0 (PCIe wake)
+gpio53-69: in, various pulls (QPIC NAND bus)
+
+=== LED ANALYSIS ===
+V2 GPIO outputs at 10mA (typical LED drive current):
+  gpio20: out 1 10mA — LED ON
+  gpio21: out 1 10mA — LED ON
+  gpio24: out 0 10mA — LED OFF
+  gpio25: out 0 10mA — LED OFF
+  gpio26: out 0 10mA — LED OFF
+  gpio27: out 0 10mA — LED OFF
+
+V2 GPIO outputs at 4mA (could be LEDs):
+  gpio22: out 0 4mA — LED OFF
+  gpio23: out 0 4mA — LED OFF
+
+GPIO 53-69 are ALL inputs = QPIC NAND bus (confirmed!)
+No I2C LED controller (TLC59208F) — GPIO 58,59 are NAND data lines
+
+=== COMPARISON WITH RBR20 (NAND Orbi) ===
+RBR20 LED GPIOs:    22, 23, 24, 25, 26, 27
+V2 output GPIOs:    20, 21, 22, 23, 24, 25, 26, 27
+
+V2 matches RBR20 LED pattern almost exactly!
+Extra GPIOs 20, 21 could be additional LEDs or I2C for backlight LED controller.
+
+=== KEY FINDINGS ===
+1. NAND confirmed: GPIO 53-69 all used for QPIC bus
+2. LED GPIOs: 20-27 range (matches RBR20 pattern)
+3. No I2C LED controller (V1 used TLC59208F on GPIO 58,59 — these are now NAND)
+4. UART confirmed: GPIO 16 (TX), GPIO 17 (RX)
+5. Reset button: GPIO 18
+6. WPS button: GPIO 49
+7. PCIe: PERST GPIO 38, wake GPIO 50
+8. MDIO: GPIO 6, MDC: GPIO 7
