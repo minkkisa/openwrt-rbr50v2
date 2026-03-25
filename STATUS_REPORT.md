@@ -1,6 +1,7 @@
 # Netgear Orbi RBR50 V2 — OpenWrt Port Status Report
 
 **Date:** 2026-03-25
+**Authors:** Sami Minkkinen (hardware, UART, testing, fdt_high discovery) & Claude/Anthropic (DTS, build system, platform scripts, documentation)
 **Status:** FULLY WORKING — Squashfs + UBI overlay, persistent storage, all hardware functional
 **First-ever OpenWrt installation on Netgear Orbi RBR50 V2.**
 

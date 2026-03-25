@@ -72,3 +72,9 @@ Detailed installation guide: [will be added to wiki after merge]
 - **Modified:** `target/linux/ipq40xx/base-files/lib/upgrade/platform.sh` — add nand_do_upgrade
 - **Modified:** `target/linux/ipq40xx/base-files/etc/board.d/02_network` — add LAN/WAN config
 - **Modified:** `target/linux/ipq40xx/base-files/etc/board.d/01_leds` — add power LED default
+
+### Credits
+
+This port was developed by **Sami Minkkinen** with assistance from **Claude** (Anthropic) for DTS authoring, build system integration, platform script patches, documentation, and the fdt_high root cause analysis.
+
+Pre-built test images and full documentation: https://github.com/minkkisa/openwrt-rbr50v2

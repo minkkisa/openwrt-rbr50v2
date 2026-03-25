@@ -6,21 +6,24 @@ Hardware:
 - Flash: 512 MB SPI NAND (Macronix MX30LF4G18AC)
 - WiFi: 2x IPQ4019 (2.4GHz + 5GHz) + QCA9984 PCIe (5GHz 4x4)
 - Ethernet: QCA8075 5-port GbE switch (WAN + 3x LAN, DSA)
-- LEDs: GPIO 22-27 + TLC59208F I2C LED controller (ring LED)
+- LEDs: GPIO 22-27 + TLC59208F I2C ring LED controller
 - No USB, no Bluetooth (unlike V1)
 
 Key differences from RBR50 V1:
 - NAND flash instead of eMMC
-- Requires fdt_high=0x87000000 in U-Boot (DNI modified U-Boot
-  overwrites FDT after bootm without this)
-- LED ring controlled by TLC59208F on I2C bus 0 (address 0x27)
+- Requires fdt_high=0x87000000 in U-Boot (DNI modified
+  U-Boot overwrites FDT after bootm without this)
+- LED ring: TLC59208F on I2C bus 0 (address 0x27)
 
 Installation:
 1. Connect UART (J01 header, 115200 8N1)
 2. Set U-Boot env: fdt_high=0x87000000, save
 3. TFTP boot initramfs, then sysupgrade
 
-Tested: kernel boot, NAND, UBI overlay, Ethernet, WiFi (all 3 radios
-including AP mode), PCIe, sysupgrade persistence, LEDs (GPIO + I2C ring).
+Tested: kernel boot, NAND, UBI overlay, Ethernet,
+WiFi (all 3 radios including AP mode), PCIe,
+sysupgrade persistence, LEDs (GPIO + I2C ring).
 
+Co-developed-by: Claude <noreply@anthropic.com>
+Signed-off-by: Claude <noreply@anthropic.com>
 Signed-off-by: Sami Minkkinen <sami@samiminkkinen.fi>

@@ -2,6 +2,9 @@
 //
 // Device Tree Source for Netgear Orbi RBR50 V2 (NAND)
 //
+// Copyright (C) 2026 Sami Minkkinen <sami@samiminkkinen.fi>
+// Co-developed with Claude (Anthropic)
+//
 // Based on Netgear RBR20 (NAND Orbi) by OpenWrt community.
 // V2 uses 512MB SPI NAND (Macronix MX30LF4G18AC-TI) instead of V1's eMMC.
 // Key differences from V1: NAND flash, LED GPIOs relocated to 22-27,

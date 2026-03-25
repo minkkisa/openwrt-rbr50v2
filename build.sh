@@ -2,6 +2,8 @@
 # ============================================================
 # OpenWrt build script for Netgear RBR50 V2
 # Run this INSIDE the Docker container
+#
+# Authors: Sami Minkkinen & Claude (Anthropic)
 # ============================================================
 set -e
 export FORCE_UNSAFE_CONFIGURE=1
