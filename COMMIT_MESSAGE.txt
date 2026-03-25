@@ -4,25 +4,30 @@ Hardware:
 - SoC: Qualcomm IPQ4019 (4x ARM Cortex-A7)
 - RAM: 512 MB DDR3L
 - Flash: 512 MB SPI NAND (Macronix MX30LF4G18AC)
-- WiFi: 2x IPQ4019 (2.4GHz + 5GHz) + QCA9984 PCIe (5GHz 4x4)
-- Ethernet: QCA8075 5-port GbE switch (WAN + 3x LAN, DSA)
-- LEDs: GPIO 22-27 + TLC59208F I2C ring LED controller
+- WiFi: 2x IPQ4019 (2.4GHz + 5GHz) + QCA9984 PCIe
+- Ethernet: QCA8075 5-port GbE (WAN + 3x LAN, DSA)
+- LEDs: GPIO 22-27 + TLC59208F I2C ring LED
 - No USB, no Bluetooth (unlike V1)
 
 Key differences from RBR50 V1:
 - NAND flash instead of eMMC
-- Requires fdt_high=0x87000000 in U-Boot (DNI modified
-  U-Boot overwrites FDT after bootm without this)
-- LED ring: TLC59208F on I2C bus 0 (address 0x27)
+- Requires fdt_high=0x87000000 in U-Boot (DNI
+  modified U-Boot overwrites FDT after bootm)
+- LED ring: TLC59208F on I2C bus 0 addr 0x27
+
+MAC address assignment (boarddata1 partition):
+  LAN   boarddata1 0x0  (label MAC, wifi0 2.4G)
+  WAN   boarddata1 0x6
+  5G    boarddata1 0xc  (IPQ4019 5GHz low)
+  5G2   boarddata1 0x12 (QCA9984 PCIe backhaul)
 
 Installation:
-1. Connect UART (J01 header, 115200 8N1)
-2. Set U-Boot env: fdt_high=0x87000000, save
+1. UART (J01 header, 115200 8N1)
+2. U-Boot: setenv fdt_high 0x87000000; saveenv
 3. TFTP boot initramfs, then sysupgrade
 
 Tested: kernel boot, NAND, UBI overlay, Ethernet,
-WiFi (all 3 radios including AP mode), PCIe,
-sysupgrade persistence, LEDs (GPIO + I2C ring).
+WiFi (3 radios, AP mode), PCIe, sysupgrade, LEDs.
 
 Co-developed-by: Claude <noreply@anthropic.com>
 Signed-off-by: Claude <noreply@anthropic.com>

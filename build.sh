@@ -61,7 +61,12 @@ define Device/netgear_rbr50v2
 	UBINIZE_OPTS := -E 5
 	NETGEAR_BOARD_ID := RBR50
 	NETGEAR_HW_ID := 29765913+0+512+512+2x2+2x2+4x4
-	IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+	IMAGE/factory.img := append-kernel | pad-offset \
+		$$(BLOCKSIZE) 64 | append-uImage-fakehdr filesystem | \
+		pad-to $$(KERNEL_SIZE) | append-ubi | netgear-dni
+	IMAGE/sysupgrade.bin := append-kernel | pad-offset \
+		$$(BLOCKSIZE) 64 | append-uImage-fakehdr filesystem | \
+		sysupgrade-tar kernel=$$$$@ | append-metadata
 	DEVICE_PACKAGES := ath10k-firmware-qca9984-ct kmod-leds-tlc591xx
 endef
 TARGET_DEVICES += netgear_rbr50v2
