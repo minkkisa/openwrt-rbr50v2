@@ -158,6 +158,9 @@ Pre-built images are available on the [GitHub Releases](https://github.com/minkk
 ## Installation Guide
 
 ### Prerequisites
+
+**A USB-UART adapter is mandatory for first-time installation — there is no alternative.** The U-Boot environment variables `fdt_high` and `bootcmd` must be set via the U-Boot serial console before any OpenWrt kernel will boot. The stock `bootcmd` uses DNI's `load_chk_dniimg` which rejects non-Netgear images, and `fw_setenv` is not available from stock Linux. NMRP recovery alone cannot set these variables. After the one-time U-Boot setup, subsequent upgrades work via `sysupgrade` without UART.
+
 - USB-UART adapter (3.3V TTL — FTDI, CP2102, or CH340)
 - Ethernet cable (host PC → Orbi LAN port)
 - TFTP server on host machine
